@@ -1,6 +1,6 @@
 [package]
 name = "ctm"
-version = "0.1.0"
+version = "0.2.0"
 description = "Common Electric Power Transmission System Model"
 license = "MIT"
 repository = "https://github.com/rwl/ctm"
