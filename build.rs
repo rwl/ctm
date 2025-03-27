@@ -1,9 +1,8 @@
-use std::{env, fs, path::Path};
-
-use typify::{TypeSpace, TypeSpaceSettings};
+// use std::{env, fs, path::Path};
+// use typify::{TypeSpace, TypeSpaceSettings};
 
 fn main() {
-    let content = fs::read_to_string("ctm_data_schema.json").unwrap();
+    /*let content = fs::read_to_string("ctm_data_schema.json").unwrap();
     let content = content
         .replace(r#""title": "CTM Data""#, r#""title": "CTM""#)
         .replace(
@@ -50,5 +49,5 @@ fn main() {
     out_file.push("codegen.rs");
     fs::write(out_file, contents).unwrap();
 
-    println!("cargo::rerun-if-changed=ctm_data_schema.json");
+    println!("cargo::rerun-if-changed=ctm_data_schema.json");*/
 }

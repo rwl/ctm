@@ -15,4 +15,8 @@
     dead_code,
     elided_named_lifetimes
 )]
-include!(concat!(env!("OUT_DIR"), "/codegen.rs"));
+// include!(concat!(env!("OUT_DIR"), "/codegen.rs"));
+#![allow(rustdoc::bare_urls)]
+mod ctm;
+
+pub use ctm::*;
