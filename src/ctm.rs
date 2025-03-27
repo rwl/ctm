@@ -101,7 +101,7 @@ impl ::std::fmt::Display for Binary {
 #[doc = r""]
 #[doc = r" ```json"]
 #[doc = "{"]
-#[doc = "  \"title\": \"CTM Data\","]
+#[doc = "  \"title\": \"CTM\","]
 #[doc = "  \"description\": \"Common Transmission Model (CTM) Data Schema v0.1\","]
 #[doc = "  \"type\": \"object\","]
 #[doc = "  \"required\": ["]
@@ -1838,21 +1838,21 @@ impl ::std::fmt::Display for Binary {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmData {
+pub struct Ctm {
     #[doc = "release version of CTM specification"]
     pub ctm_version: ::std::string::String,
-    pub network: CtmDataNetwork,
-    pub temporal_boundary: CtmDataTemporalBoundary,
+    pub network: CtmNetwork,
+    pub temporal_boundary: CtmTemporalBoundary,
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub time_series_data: ::std::option::Option<CtmDataTimeSeriesData>,
+    pub time_series_data: ::std::option::Option<CtmTimeSeriesData>,
 }
-impl ::std::convert::From<&CtmData> for CtmData {
-    fn from(value: &CtmData) -> Self {
+impl ::std::convert::From<&Ctm> for Ctm {
+    fn from(value: &Ctm) -> Self {
         value.clone()
     }
 }
-impl CtmData {
-    pub fn builder() -> builder::CtmData {
+impl Ctm {
+    pub fn builder() -> builder::Ctm {
         Default::default()
     }
 }
@@ -3278,36 +3278,36 @@ impl CtmData {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetwork {
+pub struct CtmNetwork {
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub ac_line: ::std::vec::Vec<CtmDataNetworkAcLineItem>,
-    pub area: ::std::vec::Vec<CtmDataNetworkAreaItem>,
-    pub bus: ::std::vec::Vec<CtmDataNetworkBusItem>,
-    pub gen: ::std::vec::Vec<CtmDataNetworkGenItem>,
-    pub global_params: CtmDataNetworkGlobalParams,
+    pub ac_line: ::std::vec::Vec<CtmNetworkAcLineItem>,
+    pub area: ::std::vec::Vec<CtmNetworkAreaItem>,
+    pub bus: ::std::vec::Vec<CtmNetworkBusItem>,
+    pub gen: ::std::vec::Vec<CtmNetworkGenItem>,
+    pub global_params: CtmNetworkGlobalParams,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub hvdc_p2p: ::std::vec::Vec<CtmDataNetworkHvdcP2pItem>,
-    pub load: ::std::vec::Vec<CtmDataNetworkLoadItem>,
+    pub hvdc_p2p: ::std::vec::Vec<CtmNetworkHvdcP2pItem>,
+    pub load: ::std::vec::Vec<CtmNetworkLoadItem>,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub reserve: ::std::vec::Vec<CtmDataNetworkReserveItem>,
+    pub reserve: ::std::vec::Vec<CtmNetworkReserveItem>,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub shunt: ::std::vec::Vec<CtmDataNetworkShuntItem>,
+    pub shunt: ::std::vec::Vec<CtmNetworkShuntItem>,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub storage: ::std::vec::Vec<CtmDataNetworkStorageItem>,
+    pub storage: ::std::vec::Vec<CtmNetworkStorageItem>,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub switch: ::std::vec::Vec<CtmDataNetworkSwitchItem>,
+    pub switch: ::std::vec::Vec<CtmNetworkSwitchItem>,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub transformer: ::std::vec::Vec<CtmDataNetworkTransformerItem>,
+    pub transformer: ::std::vec::Vec<CtmNetworkTransformerItem>,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub zone: ::std::vec::Vec<CtmDataNetworkZoneItem>,
+    pub zone: ::std::vec::Vec<CtmNetworkZoneItem>,
 }
-impl ::std::convert::From<&CtmDataNetwork> for CtmDataNetwork {
-    fn from(value: &CtmDataNetwork) -> Self {
+impl ::std::convert::From<&CtmNetwork> for CtmNetwork {
+    fn from(value: &CtmNetwork) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetwork {
-    pub fn builder() -> builder::CtmDataNetwork {
+impl CtmNetwork {
+    pub fn builder() -> builder::CtmNetwork {
         Default::default()
     }
 }
@@ -3472,7 +3472,7 @@ impl CtmDataNetwork {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkAcLineItem {
+pub struct CtmNetworkAcLineItem {
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub b_fr: ::std::option::Option<f64>,
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
@@ -3483,13 +3483,13 @@ pub struct CtmDataNetworkAcLineItem {
     pub bus_to: Uid,
     #[doc = "[kA or pu] persistent current rating"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub cm_ub_a: ::std::option::Option<CtmDataNetworkAcLineItemCmUbA>,
+    pub cm_ub_a: ::std::option::Option<CtmNetworkAcLineItemCmUbA>,
     #[doc = "[kA or pu] 4-hour current rating"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub cm_ub_b: ::std::option::Option<CtmDataNetworkAcLineItemCmUbB>,
+    pub cm_ub_b: ::std::option::Option<CtmNetworkAcLineItemCmUbB>,
     #[doc = "[kA or pu] 15-minute current rating"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub cm_ub_c: ::std::option::Option<CtmDataNetworkAcLineItemCmUbC>,
+    pub cm_ub_c: ::std::option::Option<CtmNetworkAcLineItemCmUbC>,
     #[doc = "additional ac line parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
@@ -3512,13 +3512,13 @@ pub struct CtmDataNetworkAcLineItem {
     pub r: f64,
     #[doc = "[MVA or pu] persistent apparent power rating"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub sm_ub_a: ::std::option::Option<CtmDataNetworkAcLineItemSmUbA>,
+    pub sm_ub_a: ::std::option::Option<CtmNetworkAcLineItemSmUbA>,
     #[doc = "[MVA or pu] 4-hour apparent power rating"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub sm_ub_b: ::std::option::Option<CtmDataNetworkAcLineItemSmUbB>,
+    pub sm_ub_b: ::std::option::Option<CtmNetworkAcLineItemSmUbB>,
     #[doc = "[MVA or pu] 15-minute apparent power rating"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub sm_ub_c: ::std::option::Option<CtmDataNetworkAcLineItemSmUbC>,
+    pub sm_ub_c: ::std::option::Option<CtmNetworkAcLineItemSmUbC>,
     pub status: Status,
     #[doc = "[events/year] number of expected transient outages per year (outages cleared by reconnectors)"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
@@ -3530,13 +3530,13 @@ pub struct CtmDataNetworkAcLineItem {
     pub vad_ub: ::std::option::Option<f64>,
     pub x: f64,
 }
-impl ::std::convert::From<&CtmDataNetworkAcLineItem> for CtmDataNetworkAcLineItem {
-    fn from(value: &CtmDataNetworkAcLineItem) -> Self {
+impl ::std::convert::From<&CtmNetworkAcLineItem> for CtmNetworkAcLineItem {
+    fn from(value: &CtmNetworkAcLineItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkAcLineItem {
-    pub fn builder() -> builder::CtmDataNetworkAcLineItem {
+impl CtmNetworkAcLineItem {
+    pub fn builder() -> builder::CtmNetworkAcLineItem {
         Default::default()
     }
 }
@@ -3560,21 +3560,21 @@ impl CtmDataNetworkAcLineItem {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkAcLineItemCmUbA {
+pub enum CtmNetworkAcLineItemCmUbA {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkAcLineItemCmUbA {
-    fn from(value: &CtmDataNetworkAcLineItemCmUbA) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkAcLineItemCmUbA {
+    fn from(value: &CtmNetworkAcLineItemCmUbA) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkAcLineItemCmUbA {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkAcLineItemCmUbA {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemCmUbA {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkAcLineItemCmUbA {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -3599,21 +3599,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemCmUbA
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkAcLineItemCmUbB {
+pub enum CtmNetworkAcLineItemCmUbB {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkAcLineItemCmUbB {
-    fn from(value: &CtmDataNetworkAcLineItemCmUbB) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkAcLineItemCmUbB {
+    fn from(value: &CtmNetworkAcLineItemCmUbB) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkAcLineItemCmUbB {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkAcLineItemCmUbB {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemCmUbB {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkAcLineItemCmUbB {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -3638,21 +3638,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemCmUbB
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkAcLineItemCmUbC {
+pub enum CtmNetworkAcLineItemCmUbC {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkAcLineItemCmUbC {
-    fn from(value: &CtmDataNetworkAcLineItemCmUbC) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkAcLineItemCmUbC {
+    fn from(value: &CtmNetworkAcLineItemCmUbC) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkAcLineItemCmUbC {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkAcLineItemCmUbC {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemCmUbC {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkAcLineItemCmUbC {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -3677,21 +3677,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemCmUbC
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkAcLineItemSmUbA {
+pub enum CtmNetworkAcLineItemSmUbA {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkAcLineItemSmUbA {
-    fn from(value: &CtmDataNetworkAcLineItemSmUbA) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkAcLineItemSmUbA {
+    fn from(value: &CtmNetworkAcLineItemSmUbA) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkAcLineItemSmUbA {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkAcLineItemSmUbA {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemSmUbA {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkAcLineItemSmUbA {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -3716,21 +3716,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemSmUbA
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkAcLineItemSmUbB {
+pub enum CtmNetworkAcLineItemSmUbB {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkAcLineItemSmUbB {
-    fn from(value: &CtmDataNetworkAcLineItemSmUbB) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkAcLineItemSmUbB {
+    fn from(value: &CtmNetworkAcLineItemSmUbB) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkAcLineItemSmUbB {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkAcLineItemSmUbB {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemSmUbB {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkAcLineItemSmUbB {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -3755,21 +3755,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemSmUbB
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkAcLineItemSmUbC {
+pub enum CtmNetworkAcLineItemSmUbC {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkAcLineItemSmUbC {
-    fn from(value: &CtmDataNetworkAcLineItemSmUbC) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkAcLineItemSmUbC {
+    fn from(value: &CtmNetworkAcLineItemSmUbC) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkAcLineItemSmUbC {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkAcLineItemSmUbC {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemSmUbC {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkAcLineItemSmUbC {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -3806,7 +3806,7 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkAcLineItemSmUbC
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkAreaItem {
+pub struct CtmNetworkAreaItem {
     #[doc = "additional area parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
@@ -3817,13 +3817,13 @@ pub struct CtmDataNetworkAreaItem {
     pub status: Status,
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataNetworkAreaItem> for CtmDataNetworkAreaItem {
-    fn from(value: &CtmDataNetworkAreaItem) -> Self {
+impl ::std::convert::From<&CtmNetworkAreaItem> for CtmNetworkAreaItem {
+    fn from(value: &CtmNetworkAreaItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkAreaItem {
-    pub fn builder() -> builder::CtmDataNetworkAreaItem {
+impl CtmNetworkAreaItem {
+    pub fn builder() -> builder::CtmNetworkAreaItem {
         Default::default()
     }
 }
@@ -3909,7 +3909,7 @@ impl CtmDataNetworkAreaItem {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkBusItem {
+pub struct CtmNetworkBusItem {
     #[doc = "uid for area to which bus belongs to"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub area: ::std::option::Option<Uid>,
@@ -3928,25 +3928,25 @@ pub struct CtmDataNetworkBusItem {
         default,
         skip_serializing_if = "::std::option::Option::is_none"
     )]
-    pub type_: ::std::option::Option<CtmDataNetworkBusItemType>,
+    pub type_: ::std::option::Option<CtmNetworkBusItemType>,
     pub uid: Uid,
     #[doc = "bus voltage lower bound"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub vm_lb: ::std::option::Option<CtmDataNetworkBusItemVmLb>,
+    pub vm_lb: ::std::option::Option<CtmNetworkBusItemVmLb>,
     #[doc = "bus voltage upper bound"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub vm_ub: ::std::option::Option<CtmDataNetworkBusItemVmUb>,
+    pub vm_ub: ::std::option::Option<CtmNetworkBusItemVmUb>,
     #[doc = "uid for zone to which bus belongs to"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub zone: ::std::option::Option<Uid>,
 }
-impl ::std::convert::From<&CtmDataNetworkBusItem> for CtmDataNetworkBusItem {
-    fn from(value: &CtmDataNetworkBusItem) -> Self {
+impl ::std::convert::From<&CtmNetworkBusItem> for CtmNetworkBusItem {
+    fn from(value: &CtmNetworkBusItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkBusItem {
-    pub fn builder() -> builder::CtmDataNetworkBusItem {
+impl CtmNetworkBusItem {
+    pub fn builder() -> builder::CtmNetworkBusItem {
         Default::default()
     }
 }
@@ -3975,26 +3975,26 @@ impl CtmDataNetworkBusItem {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkBusItemType {
-    Variant0(CtmDataNetworkBusItemTypeVariant0),
+pub enum CtmNetworkBusItemType {
+    Variant0(CtmNetworkBusItemTypeVariant0),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkBusItemType {
-    fn from(value: &CtmDataNetworkBusItemType) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkBusItemType {
+    fn from(value: &CtmNetworkBusItemType) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<CtmDataNetworkBusItemTypeVariant0> for CtmDataNetworkBusItemType {
-    fn from(value: CtmDataNetworkBusItemTypeVariant0) -> Self {
+impl ::std::convert::From<CtmNetworkBusItemTypeVariant0> for CtmNetworkBusItemType {
+    fn from(value: CtmNetworkBusItemTypeVariant0) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkBusItemType {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkBusItemType {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
 }
-#[doc = "`CtmDataNetworkBusItemTypeVariant0`"]
+#[doc = "`CtmNetworkBusItemTypeVariant0`"]
 #[doc = r""]
 #[doc = r" <details><summary>JSON schema</summary>"]
 #[doc = r""]
@@ -4021,7 +4021,7 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkBusItemType {
     PartialEq,
     PartialOrd,
 )]
-pub enum CtmDataNetworkBusItemTypeVariant0 {
+pub enum CtmNetworkBusItemTypeVariant0 {
     #[serde(rename = "PQ")]
     Pq,
     #[serde(rename = "PV")]
@@ -4029,12 +4029,12 @@ pub enum CtmDataNetworkBusItemTypeVariant0 {
     #[serde(rename = "slack")]
     Slack,
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkBusItemTypeVariant0 {
-    fn from(value: &CtmDataNetworkBusItemTypeVariant0) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkBusItemTypeVariant0 {
+    fn from(value: &CtmNetworkBusItemTypeVariant0) -> Self {
         value.clone()
     }
 }
-impl ::std::fmt::Display for CtmDataNetworkBusItemTypeVariant0 {
+impl ::std::fmt::Display for CtmNetworkBusItemTypeVariant0 {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match *self {
             Self::Pq => write!(f, "PQ"),
@@ -4043,7 +4043,7 @@ impl ::std::fmt::Display for CtmDataNetworkBusItemTypeVariant0 {
         }
     }
 }
-impl ::std::str::FromStr for CtmDataNetworkBusItemTypeVariant0 {
+impl ::std::str::FromStr for CtmNetworkBusItemTypeVariant0 {
     type Err = self::error::ConversionError;
     fn from_str(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         match value {
@@ -4054,13 +4054,13 @@ impl ::std::str::FromStr for CtmDataNetworkBusItemTypeVariant0 {
         }
     }
 }
-impl ::std::convert::TryFrom<&str> for CtmDataNetworkBusItemTypeVariant0 {
+impl ::std::convert::TryFrom<&str> for CtmNetworkBusItemTypeVariant0 {
     type Error = self::error::ConversionError;
     fn try_from(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkBusItemTypeVariant0 {
+impl ::std::convert::TryFrom<&::std::string::String> for CtmNetworkBusItemTypeVariant0 {
     type Error = self::error::ConversionError;
     fn try_from(
         value: &::std::string::String,
@@ -4068,7 +4068,7 @@ impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkBusItemTy
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkBusItemTypeVariant0 {
+impl ::std::convert::TryFrom<::std::string::String> for CtmNetworkBusItemTypeVariant0 {
     type Error = self::error::ConversionError;
     fn try_from(
         value: ::std::string::String,
@@ -4096,21 +4096,21 @@ impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkBusItemTyp
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkBusItemVmLb {
+pub enum CtmNetworkBusItemVmLb {
     PositiveNumber(PositiveNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkBusItemVmLb {
-    fn from(value: &CtmDataNetworkBusItemVmLb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkBusItemVmLb {
+    fn from(value: &CtmNetworkBusItemVmLb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<PositiveNumber> for CtmDataNetworkBusItemVmLb {
+impl ::std::convert::From<PositiveNumber> for CtmNetworkBusItemVmLb {
     fn from(value: PositiveNumber) -> Self {
         Self::PositiveNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkBusItemVmLb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkBusItemVmLb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -4135,21 +4135,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkBusItemVmLb {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkBusItemVmUb {
+pub enum CtmNetworkBusItemVmUb {
     PositiveNumber(PositiveNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkBusItemVmUb {
-    fn from(value: &CtmDataNetworkBusItemVmUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkBusItemVmUb {
+    fn from(value: &CtmNetworkBusItemVmUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<PositiveNumber> for CtmDataNetworkBusItemVmUb {
+impl ::std::convert::From<PositiveNumber> for CtmNetworkBusItemVmUb {
     fn from(value: PositiveNumber) -> Self {
         Self::PositiveNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkBusItemVmUb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkBusItemVmUb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -4423,15 +4423,15 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkBusItemVmUb {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkGenItem {
+pub struct CtmNetworkGenItem {
     #[doc = "uid of bus to which generator is connected to"]
     pub bus: Uid,
     #[doc = "type of generation cost model (i.e., function translating power/energy to money); POLYNOMIAL => cost_pg_parameters is an array with n+1 coefficients <a_i> for f(x) = a_0 + a_1 x^1 + ... + a_n x^n; PIECEWISE_LINEAR => cost_pg_parameters is a series of values <x_i, f_i> and cost (f) should be interpolated linearly in between points; MARGINAL_COST => cost_pg_parameters is a series of values <b_i, m_i>, where m_i is a marginal cost ($/MWh or $/(pu*h)) and b_i is the amoung of power (MWh or pu*h) sold at marginal cost m_i"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub cost_pg_model: ::std::option::Option<CtmDataNetworkGenItemCostPgModel>,
+    pub cost_pg_model: ::std::option::Option<CtmNetworkGenItemCostPgModel>,
     #[doc = "parameters of generation cost function, can be time dependent"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub cost_pg_parameters: ::std::option::Option<CtmDataNetworkGenItemCostPgParameters>,
+    pub cost_pg_parameters: ::std::option::Option<CtmNetworkGenItemCostPgParameters>,
     #[doc = "[h] minimim time the unit can be out of service (a.k.a., minimum down time)"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub down_time_lb: ::std::option::Option<NonnegativeNumber>,
@@ -4466,39 +4466,39 @@ pub struct CtmDataNetworkGenItem {
     pub pg_delta_ub: ::std::option::Option<NonnegativeNumber>,
     #[doc = "[MW or pu] lower bound of active power injection (rectangular operating zone)"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub pg_lb: ::std::option::Option<CtmDataNetworkGenItemPgLb>,
+    pub pg_lb: ::std::option::Option<CtmNetworkGenItemPgLb>,
     #[doc = "[MW or pu] upper bound of active power injection (rectangular operating zone)"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub pg_ub: ::std::option::Option<CtmDataNetworkGenItemPgUb>,
+    pub pg_ub: ::std::option::Option<CtmNetworkGenItemPgUb>,
     #[doc = "primary energy source"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub primary_source: ::std::option::Option<CtmDataNetworkGenItemPrimarySource>,
+    pub primary_source: ::std::option::Option<CtmNetworkGenItemPrimarySource>,
     #[doc = "subtype of primary energy source; thermal classification taken from https://www.eia.gov/survey/form/eia_923/instructions.pdf"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub primary_source_subtype: ::std::option::Option<CtmDataNetworkGenItemPrimarySourceSubtype>,
+    pub primary_source_subtype: ::std::option::Option<CtmNetworkGenItemPrimarySourceSubtype>,
     #[doc = "[MVAr or pu] lower bound of reactive power injection (rectangular operating zone)"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub qg_lb: ::std::option::Option<CtmDataNetworkGenItemQgLb>,
+    pub qg_lb: ::std::option::Option<CtmNetworkGenItemQgLb>,
     #[doc = "[MVAr or pu] upper bound of reactive power injection (rectangular operating zone)"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub qg_ub: ::std::option::Option<CtmDataNetworkGenItemQgUb>,
+    pub qg_ub: ::std::option::Option<CtmNetworkGenItemQgUb>,
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub scheduled_maintenance_rate: ::std::option::Option<f64>,
     #[doc = "whether generator must be in service (e.g., nuclear power plant) or out of service (e.g., generator during maintenance or after an outage); 0 => no requirement, 1 => fixed in service, 2 => fixed out of service"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub service_required: ::std::option::Option<CtmDataNetworkGenItemServiceRequired>,
+    pub service_required: ::std::option::Option<CtmNetworkGenItemServiceRequired>,
     #[doc = "[$] cost of shutting down the unit"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub shutdown_cost: ::std::option::Option<CtmDataNetworkGenItemShutdownCost>,
+    pub shutdown_cost: ::std::option::Option<CtmNetworkGenItemShutdownCost>,
     #[doc = "[$] cost of starting the unit after being off > startup_time_warm hours"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub startup_cost_cold: ::std::option::Option<CtmDataNetworkGenItemStartupCostCold>,
+    pub startup_cost_cold: ::std::option::Option<CtmNetworkGenItemStartupCostCold>,
     #[doc = "[$] cost of starting the unit after being off <= startup_time_hot hours"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub startup_cost_hot: ::std::option::Option<CtmDataNetworkGenItemStartupCostHot>,
+    pub startup_cost_hot: ::std::option::Option<CtmNetworkGenItemStartupCostHot>,
     #[doc = "[$] cost of starting the unit after being off > startup_time_hot hours, but <= startup_time_warm hours"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub startup_cost_warm: ::std::option::Option<CtmDataNetworkGenItemStartupCostWarm>,
+    pub startup_cost_warm: ::std::option::Option<CtmNetworkGenItemStartupCostWarm>,
     #[doc = "[h] maximum time the unit can be off before a hot startup"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub startup_time_hot: ::std::option::Option<NonnegativeNumber>,
@@ -4509,15 +4509,15 @@ pub struct CtmDataNetworkGenItem {
     pub uid: Uid,
     #[doc = "[kV or pu] target voltage magnitude of the bus that this generator connects to"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub vm_setpoint: ::std::option::Option<CtmDataNetworkGenItemVmSetpoint>,
+    pub vm_setpoint: ::std::option::Option<CtmNetworkGenItemVmSetpoint>,
 }
-impl ::std::convert::From<&CtmDataNetworkGenItem> for CtmDataNetworkGenItem {
-    fn from(value: &CtmDataNetworkGenItem) -> Self {
+impl ::std::convert::From<&CtmNetworkGenItem> for CtmNetworkGenItem {
+    fn from(value: &CtmNetworkGenItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkGenItem {
-    pub fn builder() -> builder::CtmDataNetworkGenItem {
+impl CtmNetworkGenItem {
+    pub fn builder() -> builder::CtmNetworkGenItem {
         Default::default()
     }
 }
@@ -4549,7 +4549,7 @@ impl CtmDataNetworkGenItem {
     PartialEq,
     PartialOrd,
 )]
-pub enum CtmDataNetworkGenItemCostPgModel {
+pub enum CtmNetworkGenItemCostPgModel {
     #[serde(rename = "POLYNOMIAL")]
     Polynomial,
     #[serde(rename = "PIECEWISE_LINEAR")]
@@ -4557,12 +4557,12 @@ pub enum CtmDataNetworkGenItemCostPgModel {
     #[serde(rename = "MARGINAL_COST")]
     MarginalCost,
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemCostPgModel {
-    fn from(value: &CtmDataNetworkGenItemCostPgModel) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemCostPgModel {
+    fn from(value: &CtmNetworkGenItemCostPgModel) -> Self {
         value.clone()
     }
 }
-impl ::std::fmt::Display for CtmDataNetworkGenItemCostPgModel {
+impl ::std::fmt::Display for CtmNetworkGenItemCostPgModel {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match *self {
             Self::Polynomial => write!(f, "POLYNOMIAL"),
@@ -4571,7 +4571,7 @@ impl ::std::fmt::Display for CtmDataNetworkGenItemCostPgModel {
         }
     }
 }
-impl ::std::str::FromStr for CtmDataNetworkGenItemCostPgModel {
+impl ::std::str::FromStr for CtmNetworkGenItemCostPgModel {
     type Err = self::error::ConversionError;
     fn from_str(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         match value {
@@ -4582,13 +4582,13 @@ impl ::std::str::FromStr for CtmDataNetworkGenItemCostPgModel {
         }
     }
 }
-impl ::std::convert::TryFrom<&str> for CtmDataNetworkGenItemCostPgModel {
+impl ::std::convert::TryFrom<&str> for CtmNetworkGenItemCostPgModel {
     type Error = self::error::ConversionError;
     fn try_from(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkGenItemCostPgModel {
+impl ::std::convert::TryFrom<&::std::string::String> for CtmNetworkGenItemCostPgModel {
     type Error = self::error::ConversionError;
     fn try_from(
         value: &::std::string::String,
@@ -4596,7 +4596,7 @@ impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkGenItemCo
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkGenItemCostPgModel {
+impl ::std::convert::TryFrom<::std::string::String> for CtmNetworkGenItemCostPgModel {
     type Error = self::error::ConversionError;
     fn try_from(
         value: ::std::string::String,
@@ -4630,27 +4630,27 @@ impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkGenItemCos
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkGenItemCostPgParameters {
+pub enum CtmNetworkGenItemCostPgParameters {
     Variant0(::std::vec::Vec<f64>),
     Variant1(XyPairs),
     Variant2(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemCostPgParameters {
-    fn from(value: &CtmDataNetworkGenItemCostPgParameters) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemCostPgParameters {
+    fn from(value: &CtmNetworkGenItemCostPgParameters) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<::std::vec::Vec<f64>> for CtmDataNetworkGenItemCostPgParameters {
+impl ::std::convert::From<::std::vec::Vec<f64>> for CtmNetworkGenItemCostPgParameters {
     fn from(value: ::std::vec::Vec<f64>) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<XyPairs> for CtmDataNetworkGenItemCostPgParameters {
+impl ::std::convert::From<XyPairs> for CtmNetworkGenItemCostPgParameters {
     fn from(value: XyPairs) -> Self {
         Self::Variant1(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemCostPgParameters {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkGenItemCostPgParameters {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant2(value)
     }
@@ -4675,21 +4675,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemCostPgPa
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkGenItemPgLb {
+pub enum CtmNetworkGenItemPgLb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemPgLb {
-    fn from(value: &CtmDataNetworkGenItemPgLb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemPgLb {
+    fn from(value: &CtmNetworkGenItemPgLb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkGenItemPgLb {
+impl ::std::convert::From<f64> for CtmNetworkGenItemPgLb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemPgLb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkGenItemPgLb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -4714,21 +4714,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemPgLb {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkGenItemPgUb {
+pub enum CtmNetworkGenItemPgUb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemPgUb {
-    fn from(value: &CtmDataNetworkGenItemPgUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemPgUb {
+    fn from(value: &CtmNetworkGenItemPgUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkGenItemPgUb {
+impl ::std::convert::From<f64> for CtmNetworkGenItemPgUb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemPgUb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkGenItemPgUb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -4768,7 +4768,7 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemPgUb {
     PartialEq,
     PartialOrd,
 )]
-pub enum CtmDataNetworkGenItemPrimarySource {
+pub enum CtmNetworkGenItemPrimarySource {
     #[serde(rename = "COAL")]
     Coal,
     #[serde(rename = "OIL")]
@@ -4790,12 +4790,12 @@ pub enum CtmDataNetworkGenItemPrimarySource {
     #[serde(rename = "OTHER")]
     Other,
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemPrimarySource {
-    fn from(value: &CtmDataNetworkGenItemPrimarySource) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemPrimarySource {
+    fn from(value: &CtmNetworkGenItemPrimarySource) -> Self {
         value.clone()
     }
 }
-impl ::std::fmt::Display for CtmDataNetworkGenItemPrimarySource {
+impl ::std::fmt::Display for CtmNetworkGenItemPrimarySource {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match *self {
             Self::Coal => write!(f, "COAL"),
@@ -4811,7 +4811,7 @@ impl ::std::fmt::Display for CtmDataNetworkGenItemPrimarySource {
         }
     }
 }
-impl ::std::str::FromStr for CtmDataNetworkGenItemPrimarySource {
+impl ::std::str::FromStr for CtmNetworkGenItemPrimarySource {
     type Err = self::error::ConversionError;
     fn from_str(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         match value {
@@ -4829,13 +4829,13 @@ impl ::std::str::FromStr for CtmDataNetworkGenItemPrimarySource {
         }
     }
 }
-impl ::std::convert::TryFrom<&str> for CtmDataNetworkGenItemPrimarySource {
+impl ::std::convert::TryFrom<&str> for CtmNetworkGenItemPrimarySource {
     type Error = self::error::ConversionError;
     fn try_from(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkGenItemPrimarySource {
+impl ::std::convert::TryFrom<&::std::string::String> for CtmNetworkGenItemPrimarySource {
     type Error = self::error::ConversionError;
     fn try_from(
         value: &::std::string::String,
@@ -4843,7 +4843,7 @@ impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkGenItemPr
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkGenItemPrimarySource {
+impl ::std::convert::TryFrom<::std::string::String> for CtmNetworkGenItemPrimarySource {
     type Error = self::error::ConversionError;
     fn try_from(
         value: ::std::string::String,
@@ -4897,7 +4897,7 @@ impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkGenItemPri
     PartialEq,
     PartialOrd,
 )]
-pub enum CtmDataNetworkGenItemPrimarySourceSubtype {
+pub enum CtmNetworkGenItemPrimarySourceSubtype {
     #[serde(rename = "ANTRHC_BITMN_COAL")]
     AntrhcBitmnCoal,
     #[serde(rename = "WASTE_COAL")]
@@ -4941,12 +4941,12 @@ pub enum CtmDataNetworkGenItemPrimarySourceSubtype {
     #[serde(rename = "OTHER")]
     Other,
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemPrimarySourceSubtype {
-    fn from(value: &CtmDataNetworkGenItemPrimarySourceSubtype) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemPrimarySourceSubtype {
+    fn from(value: &CtmNetworkGenItemPrimarySourceSubtype) -> Self {
         value.clone()
     }
 }
-impl ::std::fmt::Display for CtmDataNetworkGenItemPrimarySourceSubtype {
+impl ::std::fmt::Display for CtmNetworkGenItemPrimarySourceSubtype {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match *self {
             Self::AntrhcBitmnCoal => write!(f, "ANTRHC_BITMN_COAL"),
@@ -4973,7 +4973,7 @@ impl ::std::fmt::Display for CtmDataNetworkGenItemPrimarySourceSubtype {
         }
     }
 }
-impl ::std::str::FromStr for CtmDataNetworkGenItemPrimarySourceSubtype {
+impl ::std::str::FromStr for CtmNetworkGenItemPrimarySourceSubtype {
     type Err = self::error::ConversionError;
     fn from_str(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         match value {
@@ -5002,13 +5002,13 @@ impl ::std::str::FromStr for CtmDataNetworkGenItemPrimarySourceSubtype {
         }
     }
 }
-impl ::std::convert::TryFrom<&str> for CtmDataNetworkGenItemPrimarySourceSubtype {
+impl ::std::convert::TryFrom<&str> for CtmNetworkGenItemPrimarySourceSubtype {
     type Error = self::error::ConversionError;
     fn try_from(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkGenItemPrimarySourceSubtype {
+impl ::std::convert::TryFrom<&::std::string::String> for CtmNetworkGenItemPrimarySourceSubtype {
     type Error = self::error::ConversionError;
     fn try_from(
         value: &::std::string::String,
@@ -5016,7 +5016,7 @@ impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkGenItemPr
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkGenItemPrimarySourceSubtype {
+impl ::std::convert::TryFrom<::std::string::String> for CtmNetworkGenItemPrimarySourceSubtype {
     type Error = self::error::ConversionError;
     fn try_from(
         value: ::std::string::String,
@@ -5044,21 +5044,21 @@ impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkGenItemPri
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkGenItemQgLb {
+pub enum CtmNetworkGenItemQgLb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemQgLb {
-    fn from(value: &CtmDataNetworkGenItemQgLb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemQgLb {
+    fn from(value: &CtmNetworkGenItemQgLb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkGenItemQgLb {
+impl ::std::convert::From<f64> for CtmNetworkGenItemQgLb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemQgLb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkGenItemQgLb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -5083,21 +5083,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemQgLb {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkGenItemQgUb {
+pub enum CtmNetworkGenItemQgUb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemQgUb {
-    fn from(value: &CtmDataNetworkGenItemQgUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemQgUb {
+    fn from(value: &CtmNetworkGenItemQgUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkGenItemQgUb {
+impl ::std::convert::From<f64> for CtmNetworkGenItemQgUb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemQgUb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkGenItemQgUb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -5124,21 +5124,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemQgUb {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkGenItemServiceRequired {
+pub enum CtmNetworkGenItemServiceRequired {
     Variant0(i64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemServiceRequired {
-    fn from(value: &CtmDataNetworkGenItemServiceRequired) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemServiceRequired {
+    fn from(value: &CtmNetworkGenItemServiceRequired) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<i64> for CtmDataNetworkGenItemServiceRequired {
+impl ::std::convert::From<i64> for CtmNetworkGenItemServiceRequired {
     fn from(value: i64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemServiceRequired {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkGenItemServiceRequired {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -5163,21 +5163,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemServiceR
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkGenItemShutdownCost {
+pub enum CtmNetworkGenItemShutdownCost {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemShutdownCost {
-    fn from(value: &CtmDataNetworkGenItemShutdownCost) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemShutdownCost {
+    fn from(value: &CtmNetworkGenItemShutdownCost) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkGenItemShutdownCost {
+impl ::std::convert::From<f64> for CtmNetworkGenItemShutdownCost {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemShutdownCost {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkGenItemShutdownCost {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -5202,21 +5202,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemShutdown
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkGenItemStartupCostCold {
+pub enum CtmNetworkGenItemStartupCostCold {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemStartupCostCold {
-    fn from(value: &CtmDataNetworkGenItemStartupCostCold) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemStartupCostCold {
+    fn from(value: &CtmNetworkGenItemStartupCostCold) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkGenItemStartupCostCold {
+impl ::std::convert::From<f64> for CtmNetworkGenItemStartupCostCold {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemStartupCostCold {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkGenItemStartupCostCold {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -5241,21 +5241,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemStartupC
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkGenItemStartupCostHot {
+pub enum CtmNetworkGenItemStartupCostHot {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemStartupCostHot {
-    fn from(value: &CtmDataNetworkGenItemStartupCostHot) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemStartupCostHot {
+    fn from(value: &CtmNetworkGenItemStartupCostHot) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkGenItemStartupCostHot {
+impl ::std::convert::From<f64> for CtmNetworkGenItemStartupCostHot {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemStartupCostHot {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkGenItemStartupCostHot {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -5280,21 +5280,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemStartupC
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkGenItemStartupCostWarm {
+pub enum CtmNetworkGenItemStartupCostWarm {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemStartupCostWarm {
-    fn from(value: &CtmDataNetworkGenItemStartupCostWarm) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemStartupCostWarm {
+    fn from(value: &CtmNetworkGenItemStartupCostWarm) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkGenItemStartupCostWarm {
+impl ::std::convert::From<f64> for CtmNetworkGenItemStartupCostWarm {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemStartupCostWarm {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkGenItemStartupCostWarm {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -5319,21 +5319,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemStartupC
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkGenItemVmSetpoint {
+pub enum CtmNetworkGenItemVmSetpoint {
     PositiveNumber(PositiveNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGenItemVmSetpoint {
-    fn from(value: &CtmDataNetworkGenItemVmSetpoint) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGenItemVmSetpoint {
+    fn from(value: &CtmNetworkGenItemVmSetpoint) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<PositiveNumber> for CtmDataNetworkGenItemVmSetpoint {
+impl ::std::convert::From<PositiveNumber> for CtmNetworkGenItemVmSetpoint {
     fn from(value: PositiveNumber) -> Self {
         Self::PositiveNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemVmSetpoint {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkGenItemVmSetpoint {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -5373,23 +5373,23 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkGenItemVmSetpoi
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkGlobalParams {
+pub struct CtmNetworkGlobalParams {
     #[doc = "[MVA] system-wide apparent power base"]
-    #[serde(default = "defaults::ctm_data_network_global_params_base_mva")]
+    #[serde(default = "defaults::ctm_network_global_params_base_mva")]
     pub base_mva: PositiveNumber,
     #[doc = "UID of reference bus of the electrical network"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub bus_ref: ::std::option::Option<Uid>,
     #[doc = "units used for physical network parameters"]
-    pub unit_convention: CtmDataNetworkGlobalParamsUnitConvention,
+    pub unit_convention: CtmNetworkGlobalParamsUnitConvention,
 }
-impl ::std::convert::From<&CtmDataNetworkGlobalParams> for CtmDataNetworkGlobalParams {
-    fn from(value: &CtmDataNetworkGlobalParams) -> Self {
+impl ::std::convert::From<&CtmNetworkGlobalParams> for CtmNetworkGlobalParams {
+    fn from(value: &CtmNetworkGlobalParams) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkGlobalParams {
-    pub fn builder() -> builder::CtmDataNetworkGlobalParams {
+impl CtmNetworkGlobalParams {
+    pub fn builder() -> builder::CtmNetworkGlobalParams {
         Default::default()
     }
 }
@@ -5421,7 +5421,7 @@ impl CtmDataNetworkGlobalParams {
     PartialEq,
     PartialOrd,
 )]
-pub enum CtmDataNetworkGlobalParamsUnitConvention {
+pub enum CtmNetworkGlobalParamsUnitConvention {
     #[serde(rename = "NATURAL_UNITS")]
     NaturalUnits,
     #[serde(rename = "PER_UNIT_COMPONENT_BASE")]
@@ -5429,12 +5429,12 @@ pub enum CtmDataNetworkGlobalParamsUnitConvention {
     #[serde(rename = "PER_UNIT_SYSTEM_BASE")]
     PerUnitSystemBase,
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkGlobalParamsUnitConvention {
-    fn from(value: &CtmDataNetworkGlobalParamsUnitConvention) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkGlobalParamsUnitConvention {
+    fn from(value: &CtmNetworkGlobalParamsUnitConvention) -> Self {
         value.clone()
     }
 }
-impl ::std::fmt::Display for CtmDataNetworkGlobalParamsUnitConvention {
+impl ::std::fmt::Display for CtmNetworkGlobalParamsUnitConvention {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match *self {
             Self::NaturalUnits => write!(f, "NATURAL_UNITS"),
@@ -5443,7 +5443,7 @@ impl ::std::fmt::Display for CtmDataNetworkGlobalParamsUnitConvention {
         }
     }
 }
-impl ::std::str::FromStr for CtmDataNetworkGlobalParamsUnitConvention {
+impl ::std::str::FromStr for CtmNetworkGlobalParamsUnitConvention {
     type Err = self::error::ConversionError;
     fn from_str(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         match value {
@@ -5454,13 +5454,13 @@ impl ::std::str::FromStr for CtmDataNetworkGlobalParamsUnitConvention {
         }
     }
 }
-impl ::std::convert::TryFrom<&str> for CtmDataNetworkGlobalParamsUnitConvention {
+impl ::std::convert::TryFrom<&str> for CtmNetworkGlobalParamsUnitConvention {
     type Error = self::error::ConversionError;
     fn try_from(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkGlobalParamsUnitConvention {
+impl ::std::convert::TryFrom<&::std::string::String> for CtmNetworkGlobalParamsUnitConvention {
     type Error = self::error::ConversionError;
     fn try_from(
         value: &::std::string::String,
@@ -5468,7 +5468,7 @@ impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkGlobalPar
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkGlobalParamsUnitConvention {
+impl ::std::convert::TryFrom<::std::string::String> for CtmNetworkGlobalParamsUnitConvention {
     type Error = self::error::ConversionError;
     fn try_from(
         value: ::std::string::String,
@@ -5709,7 +5709,7 @@ impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkGlobalPara
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkHvdcP2pItem {
+pub struct CtmNetworkHvdcP2pItem {
     #[doc = "[kV] base voltage at the dc side"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub base_kv_dc: ::std::option::Option<PositiveNumber>,
@@ -5719,21 +5719,21 @@ pub struct CtmDataNetworkHvdcP2pItem {
     pub bus_to: Uid,
     #[doc = "[kA or pu] ac persistent current rating, from terminal (if in pu, use from bus base_kv)"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub cm_ub_fr: ::std::option::Option<CtmDataNetworkHvdcP2pItemCmUbFr>,
+    pub cm_ub_fr: ::std::option::Option<CtmNetworkHvdcP2pItemCmUbFr>,
     #[doc = "[kA or pu] ac persistent current rating, to terminal (if in pu, use to bus base_kv)"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub cm_ub_to: ::std::option::Option<CtmDataNetworkHvdcP2pItemCmUbTo>,
+    pub cm_ub_to: ::std::option::Option<CtmNetworkHvdcP2pItemCmUbTo>,
     #[doc = "additional hvdc point-to-point parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
     #[doc = "[MW or pu] standby loss"]
-    #[serde(default = "defaults::ctm_data_network_hvdc_p2p_item_loss_a")]
+    #[serde(default = "defaults::ctm_network_hvdc_p2p_item_loss_a")]
     pub loss_a: NonnegativeNumber,
     #[doc = "[kV or pu] loss proportional to current magnitude (if in pu, base voltage corresponds to base_kv_dc)"]
-    #[serde(default = "defaults::ctm_data_network_hvdc_p2p_item_loss_b")]
+    #[serde(default = "defaults::ctm_network_hvdc_p2p_item_loss_b")]
     pub loss_b: NonnegativeNumber,
     #[doc = "[Ohm or pu] loss proportional to current magnitude squared (if in pu, base voltage corresponds to base_kv_dc)"]
-    #[serde(default = "defaults::ctm_data_network_hvdc_p2p_item_loss_c")]
+    #[serde(default = "defaults::ctm_network_hvdc_p2p_item_loss_c")]
     pub loss_c: NonnegativeNumber,
     #[doc = "HVDC line name"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
@@ -5746,16 +5746,16 @@ pub struct CtmDataNetworkHvdcP2pItem {
     pub p: ::std::option::Option<i64>,
     #[doc = "[MW or pu] minimum active power entering hvdc line at from bus"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub pdc_fr_lb: ::std::option::Option<CtmDataNetworkHvdcP2pItemPdcFrLb>,
+    pub pdc_fr_lb: ::std::option::Option<CtmNetworkHvdcP2pItemPdcFrLb>,
     #[doc = "[MW or pu] maximum active power entering hvdc line at from bus"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub pdc_fr_ub: ::std::option::Option<CtmDataNetworkHvdcP2pItemPdcFrUb>,
+    pub pdc_fr_ub: ::std::option::Option<CtmNetworkHvdcP2pItemPdcFrUb>,
     #[doc = "[MW or pu] minimum active power entering hvdc line at to bus"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub pdc_to_lb: ::std::option::Option<CtmDataNetworkHvdcP2pItemPdcToLb>,
+    pub pdc_to_lb: ::std::option::Option<CtmNetworkHvdcP2pItemPdcToLb>,
     #[doc = "[MW or pu] maximum active power entering hvdc line at to bus"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub pdc_to_ub: ::std::option::Option<CtmDataNetworkHvdcP2pItemPdcToUb>,
+    pub pdc_to_ub: ::std::option::Option<CtmNetworkHvdcP2pItemPdcToUb>,
     #[doc = "[hours] expected duration of persistent outage (time between outage and crews re-energizing the branch)"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub persistent_outage_duration: ::std::option::Option<NonnegativeNumber>,
@@ -5768,26 +5768,26 @@ pub struct CtmDataNetworkHvdcP2pItem {
     pub phi_ub: ::std::option::Option<f64>,
     #[doc = "[MVAr or pu] minimum reactive power entering hvdc line at from bus"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub qdc_fr_lb: ::std::option::Option<CtmDataNetworkHvdcP2pItemQdcFrLb>,
+    pub qdc_fr_lb: ::std::option::Option<CtmNetworkHvdcP2pItemQdcFrLb>,
     #[doc = "[MVAr or pu] maximum reactive power entering hvdc line at from bus"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub qdc_fr_ub: ::std::option::Option<CtmDataNetworkHvdcP2pItemQdcFrUb>,
+    pub qdc_fr_ub: ::std::option::Option<CtmNetworkHvdcP2pItemQdcFrUb>,
     #[doc = "[MVAr or pu] minimum reactive power entering hvdc line at to bus"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub qdc_to_lb: ::std::option::Option<CtmDataNetworkHvdcP2pItemQdcToLb>,
+    pub qdc_to_lb: ::std::option::Option<CtmNetworkHvdcP2pItemQdcToLb>,
     #[doc = "[MW or pu] maximum active power entering hvdc line at to bus"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub qdc_to_ub: ::std::option::Option<CtmDataNetworkHvdcP2pItemQdcToUb>,
+    pub qdc_to_ub: ::std::option::Option<CtmNetworkHvdcP2pItemQdcToUb>,
     #[doc = "[Ohm or pu] dc line resistance (if in pu, base voltage corresponds to base_kv_dc)"]
-    #[serde(default = "defaults::ctm_data_network_hvdc_p2p_item_r")]
+    #[serde(default = "defaults::ctm_network_hvdc_p2p_item_r")]
     pub r: NonnegativeNumber,
     #[doc = "[MVA or pu] ac persistent apparent power rating"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub sm_ub: ::std::option::Option<CtmDataNetworkHvdcP2pItemSmUb>,
+    pub sm_ub: ::std::option::Option<CtmNetworkHvdcP2pItemSmUb>,
     pub status: Status,
     #[doc = "power conversion technology"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub technology: ::std::option::Option<CtmDataNetworkHvdcP2pItemTechnology>,
+    pub technology: ::std::option::Option<CtmNetworkHvdcP2pItemTechnology>,
     #[doc = "[events/year] number of expected transient outages per year (outages cleared by reconnectors or other)"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub transient_outage_rate: ::std::option::Option<NonnegativeNumber>,
@@ -5799,13 +5799,13 @@ pub struct CtmDataNetworkHvdcP2pItem {
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub vm_dc_ub: ::std::option::Option<PositiveNumber>,
 }
-impl ::std::convert::From<&CtmDataNetworkHvdcP2pItem> for CtmDataNetworkHvdcP2pItem {
-    fn from(value: &CtmDataNetworkHvdcP2pItem) -> Self {
+impl ::std::convert::From<&CtmNetworkHvdcP2pItem> for CtmNetworkHvdcP2pItem {
+    fn from(value: &CtmNetworkHvdcP2pItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkHvdcP2pItem {
-    pub fn builder() -> builder::CtmDataNetworkHvdcP2pItem {
+impl CtmNetworkHvdcP2pItem {
+    pub fn builder() -> builder::CtmNetworkHvdcP2pItem {
         Default::default()
     }
 }
@@ -5829,21 +5829,21 @@ impl CtmDataNetworkHvdcP2pItem {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkHvdcP2pItemCmUbFr {
+pub enum CtmNetworkHvdcP2pItemCmUbFr {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemCmUbFr {
-    fn from(value: &CtmDataNetworkHvdcP2pItemCmUbFr) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemCmUbFr {
+    fn from(value: &CtmNetworkHvdcP2pItemCmUbFr) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkHvdcP2pItemCmUbFr {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkHvdcP2pItemCmUbFr {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemCmUbFr {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkHvdcP2pItemCmUbFr {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -5868,21 +5868,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemCmUb
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkHvdcP2pItemCmUbTo {
+pub enum CtmNetworkHvdcP2pItemCmUbTo {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemCmUbTo {
-    fn from(value: &CtmDataNetworkHvdcP2pItemCmUbTo) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemCmUbTo {
+    fn from(value: &CtmNetworkHvdcP2pItemCmUbTo) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkHvdcP2pItemCmUbTo {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkHvdcP2pItemCmUbTo {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemCmUbTo {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkHvdcP2pItemCmUbTo {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -5907,21 +5907,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemCmUb
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkHvdcP2pItemPdcFrLb {
+pub enum CtmNetworkHvdcP2pItemPdcFrLb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemPdcFrLb {
-    fn from(value: &CtmDataNetworkHvdcP2pItemPdcFrLb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemPdcFrLb {
+    fn from(value: &CtmNetworkHvdcP2pItemPdcFrLb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkHvdcP2pItemPdcFrLb {
+impl ::std::convert::From<f64> for CtmNetworkHvdcP2pItemPdcFrLb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemPdcFrLb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkHvdcP2pItemPdcFrLb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -5946,21 +5946,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemPdcF
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkHvdcP2pItemPdcFrUb {
+pub enum CtmNetworkHvdcP2pItemPdcFrUb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemPdcFrUb {
-    fn from(value: &CtmDataNetworkHvdcP2pItemPdcFrUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemPdcFrUb {
+    fn from(value: &CtmNetworkHvdcP2pItemPdcFrUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkHvdcP2pItemPdcFrUb {
+impl ::std::convert::From<f64> for CtmNetworkHvdcP2pItemPdcFrUb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemPdcFrUb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkHvdcP2pItemPdcFrUb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -5985,21 +5985,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemPdcF
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkHvdcP2pItemPdcToLb {
+pub enum CtmNetworkHvdcP2pItemPdcToLb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemPdcToLb {
-    fn from(value: &CtmDataNetworkHvdcP2pItemPdcToLb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemPdcToLb {
+    fn from(value: &CtmNetworkHvdcP2pItemPdcToLb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkHvdcP2pItemPdcToLb {
+impl ::std::convert::From<f64> for CtmNetworkHvdcP2pItemPdcToLb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemPdcToLb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkHvdcP2pItemPdcToLb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6024,21 +6024,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemPdcT
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkHvdcP2pItemPdcToUb {
+pub enum CtmNetworkHvdcP2pItemPdcToUb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemPdcToUb {
-    fn from(value: &CtmDataNetworkHvdcP2pItemPdcToUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemPdcToUb {
+    fn from(value: &CtmNetworkHvdcP2pItemPdcToUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkHvdcP2pItemPdcToUb {
+impl ::std::convert::From<f64> for CtmNetworkHvdcP2pItemPdcToUb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemPdcToUb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkHvdcP2pItemPdcToUb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6063,21 +6063,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemPdcT
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkHvdcP2pItemQdcFrLb {
+pub enum CtmNetworkHvdcP2pItemQdcFrLb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemQdcFrLb {
-    fn from(value: &CtmDataNetworkHvdcP2pItemQdcFrLb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemQdcFrLb {
+    fn from(value: &CtmNetworkHvdcP2pItemQdcFrLb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkHvdcP2pItemQdcFrLb {
+impl ::std::convert::From<f64> for CtmNetworkHvdcP2pItemQdcFrLb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemQdcFrLb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkHvdcP2pItemQdcFrLb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6102,21 +6102,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemQdcF
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkHvdcP2pItemQdcFrUb {
+pub enum CtmNetworkHvdcP2pItemQdcFrUb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemQdcFrUb {
-    fn from(value: &CtmDataNetworkHvdcP2pItemQdcFrUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemQdcFrUb {
+    fn from(value: &CtmNetworkHvdcP2pItemQdcFrUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkHvdcP2pItemQdcFrUb {
+impl ::std::convert::From<f64> for CtmNetworkHvdcP2pItemQdcFrUb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemQdcFrUb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkHvdcP2pItemQdcFrUb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6141,21 +6141,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemQdcF
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkHvdcP2pItemQdcToLb {
+pub enum CtmNetworkHvdcP2pItemQdcToLb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemQdcToLb {
-    fn from(value: &CtmDataNetworkHvdcP2pItemQdcToLb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemQdcToLb {
+    fn from(value: &CtmNetworkHvdcP2pItemQdcToLb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkHvdcP2pItemQdcToLb {
+impl ::std::convert::From<f64> for CtmNetworkHvdcP2pItemQdcToLb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemQdcToLb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkHvdcP2pItemQdcToLb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6180,21 +6180,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemQdcT
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkHvdcP2pItemQdcToUb {
+pub enum CtmNetworkHvdcP2pItemQdcToUb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemQdcToUb {
-    fn from(value: &CtmDataNetworkHvdcP2pItemQdcToUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemQdcToUb {
+    fn from(value: &CtmNetworkHvdcP2pItemQdcToUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkHvdcP2pItemQdcToUb {
+impl ::std::convert::From<f64> for CtmNetworkHvdcP2pItemQdcToUb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemQdcToUb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkHvdcP2pItemQdcToUb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6219,21 +6219,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemQdcT
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkHvdcP2pItemSmUb {
+pub enum CtmNetworkHvdcP2pItemSmUb {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemSmUb {
-    fn from(value: &CtmDataNetworkHvdcP2pItemSmUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemSmUb {
+    fn from(value: &CtmNetworkHvdcP2pItemSmUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkHvdcP2pItemSmUb {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkHvdcP2pItemSmUb {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemSmUb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkHvdcP2pItemSmUb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -6266,7 +6266,7 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkHvdcP2pItemSmUb
     PartialEq,
     PartialOrd,
 )]
-pub enum CtmDataNetworkHvdcP2pItemTechnology {
+pub enum CtmNetworkHvdcP2pItemTechnology {
     #[serde(rename = "LCC")]
     Lcc,
     #[serde(rename = "VSC")]
@@ -6274,12 +6274,12 @@ pub enum CtmDataNetworkHvdcP2pItemTechnology {
     #[serde(rename = "MMC")]
     Mmc,
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkHvdcP2pItemTechnology {
-    fn from(value: &CtmDataNetworkHvdcP2pItemTechnology) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkHvdcP2pItemTechnology {
+    fn from(value: &CtmNetworkHvdcP2pItemTechnology) -> Self {
         value.clone()
     }
 }
-impl ::std::fmt::Display for CtmDataNetworkHvdcP2pItemTechnology {
+impl ::std::fmt::Display for CtmNetworkHvdcP2pItemTechnology {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match *self {
             Self::Lcc => write!(f, "LCC"),
@@ -6288,7 +6288,7 @@ impl ::std::fmt::Display for CtmDataNetworkHvdcP2pItemTechnology {
         }
     }
 }
-impl ::std::str::FromStr for CtmDataNetworkHvdcP2pItemTechnology {
+impl ::std::str::FromStr for CtmNetworkHvdcP2pItemTechnology {
     type Err = self::error::ConversionError;
     fn from_str(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         match value {
@@ -6299,13 +6299,13 @@ impl ::std::str::FromStr for CtmDataNetworkHvdcP2pItemTechnology {
         }
     }
 }
-impl ::std::convert::TryFrom<&str> for CtmDataNetworkHvdcP2pItemTechnology {
+impl ::std::convert::TryFrom<&str> for CtmNetworkHvdcP2pItemTechnology {
     type Error = self::error::ConversionError;
     fn try_from(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkHvdcP2pItemTechnology {
+impl ::std::convert::TryFrom<&::std::string::String> for CtmNetworkHvdcP2pItemTechnology {
     type Error = self::error::ConversionError;
     fn try_from(
         value: &::std::string::String,
@@ -6313,7 +6313,7 @@ impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkHvdcP2pIt
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkHvdcP2pItemTechnology {
+impl ::std::convert::TryFrom<::std::string::String> for CtmNetworkHvdcP2pItemTechnology {
     type Error = self::error::ConversionError;
     fn try_from(
         value: ::std::string::String,
@@ -6429,7 +6429,7 @@ impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkHvdcP2pIte
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkLoadItem {
+pub struct CtmNetworkLoadItem {
     #[doc = "uid of bus to which load is connected to"]
     pub bus: Uid,
     #[doc = "additional bus parameters currently not supported by CTM"]
@@ -6442,31 +6442,31 @@ pub struct CtmDataNetworkLoadItem {
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub nominal_mva: ::std::option::Option<PositiveNumber>,
     #[doc = "active power demand"]
-    pub pd: CtmDataNetworkLoadItemPd,
+    pub pd: CtmNetworkLoadItemPd,
     #[doc = "constant current active power demand at v_bus = 1.0 pu"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub pd_i: ::std::option::Option<CtmDataNetworkLoadItemPdI>,
+    pub pd_i: ::std::option::Option<CtmNetworkLoadItemPdI>,
     #[doc = "constant impedance active power demand at v_bus = 1.0 pu"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub pd_y: ::std::option::Option<CtmDataNetworkLoadItemPdY>,
+    pub pd_y: ::std::option::Option<CtmNetworkLoadItemPdY>,
     #[doc = "reactive power demand"]
-    pub qd: CtmDataNetworkLoadItemQd,
+    pub qd: CtmNetworkLoadItemQd,
     #[doc = "constant current reactive power demand at v_bus = 1.0 pu"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub qd_i: ::std::option::Option<CtmDataNetworkLoadItemQdI>,
+    pub qd_i: ::std::option::Option<CtmNetworkLoadItemQdI>,
     #[doc = "constant impedance reactive power demand at v_bus = 1.0 pu"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub qd_y: ::std::option::Option<CtmDataNetworkLoadItemQdY>,
+    pub qd_y: ::std::option::Option<CtmNetworkLoadItemQdY>,
     pub status: Status,
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataNetworkLoadItem> for CtmDataNetworkLoadItem {
-    fn from(value: &CtmDataNetworkLoadItem) -> Self {
+impl ::std::convert::From<&CtmNetworkLoadItem> for CtmNetworkLoadItem {
+    fn from(value: &CtmNetworkLoadItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkLoadItem {
-    pub fn builder() -> builder::CtmDataNetworkLoadItem {
+impl CtmNetworkLoadItem {
+    pub fn builder() -> builder::CtmNetworkLoadItem {
         Default::default()
     }
 }
@@ -6490,21 +6490,21 @@ impl CtmDataNetworkLoadItem {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkLoadItemPd {
+pub enum CtmNetworkLoadItemPd {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkLoadItemPd {
-    fn from(value: &CtmDataNetworkLoadItemPd) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkLoadItemPd {
+    fn from(value: &CtmNetworkLoadItemPd) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkLoadItemPd {
+impl ::std::convert::From<f64> for CtmNetworkLoadItemPd {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemPd {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkLoadItemPd {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6529,21 +6529,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemPd {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkLoadItemPdI {
+pub enum CtmNetworkLoadItemPdI {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkLoadItemPdI {
-    fn from(value: &CtmDataNetworkLoadItemPdI) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkLoadItemPdI {
+    fn from(value: &CtmNetworkLoadItemPdI) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkLoadItemPdI {
+impl ::std::convert::From<f64> for CtmNetworkLoadItemPdI {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemPdI {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkLoadItemPdI {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6568,21 +6568,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemPdI {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkLoadItemPdY {
+pub enum CtmNetworkLoadItemPdY {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkLoadItemPdY {
-    fn from(value: &CtmDataNetworkLoadItemPdY) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkLoadItemPdY {
+    fn from(value: &CtmNetworkLoadItemPdY) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkLoadItemPdY {
+impl ::std::convert::From<f64> for CtmNetworkLoadItemPdY {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemPdY {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkLoadItemPdY {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6607,21 +6607,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemPdY {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkLoadItemQd {
+pub enum CtmNetworkLoadItemQd {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkLoadItemQd {
-    fn from(value: &CtmDataNetworkLoadItemQd) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkLoadItemQd {
+    fn from(value: &CtmNetworkLoadItemQd) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkLoadItemQd {
+impl ::std::convert::From<f64> for CtmNetworkLoadItemQd {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemQd {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkLoadItemQd {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6646,21 +6646,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemQd {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkLoadItemQdI {
+pub enum CtmNetworkLoadItemQdI {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkLoadItemQdI {
-    fn from(value: &CtmDataNetworkLoadItemQdI) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkLoadItemQdI {
+    fn from(value: &CtmNetworkLoadItemQdI) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkLoadItemQdI {
+impl ::std::convert::From<f64> for CtmNetworkLoadItemQdI {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemQdI {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkLoadItemQdI {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6685,21 +6685,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemQdI {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkLoadItemQdY {
+pub enum CtmNetworkLoadItemQdY {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkLoadItemQdY {
-    fn from(value: &CtmDataNetworkLoadItemQdY) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkLoadItemQdY {
+    fn from(value: &CtmNetworkLoadItemQdY) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkLoadItemQdY {
+impl ::std::convert::From<f64> for CtmNetworkLoadItemQdY {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemQdY {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkLoadItemQdY {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -6773,7 +6773,7 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkLoadItemQdY {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkReserveItem {
+pub struct CtmNetworkReserveItem {
     #[doc = "additional reserve parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
@@ -6785,21 +6785,21 @@ pub struct CtmDataNetworkReserveItem {
     pub participants: ::std::vec::Vec<Uid>,
     #[doc = "[MW or pu] downward active power required by this reserve"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub pg_down: ::std::option::Option<CtmDataNetworkReserveItemPgDown>,
+    pub pg_down: ::std::option::Option<CtmNetworkReserveItemPgDown>,
     #[doc = "[MW or pu] upward active power required by this reserve"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub pg_up: ::std::option::Option<CtmDataNetworkReserveItemPgUp>,
-    pub reserve_type: CtmDataNetworkReserveItemReserveType,
+    pub pg_up: ::std::option::Option<CtmNetworkReserveItemPgUp>,
+    pub reserve_type: CtmNetworkReserveItemReserveType,
     pub status: Status,
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataNetworkReserveItem> for CtmDataNetworkReserveItem {
-    fn from(value: &CtmDataNetworkReserveItem) -> Self {
+impl ::std::convert::From<&CtmNetworkReserveItem> for CtmNetworkReserveItem {
+    fn from(value: &CtmNetworkReserveItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkReserveItem {
-    pub fn builder() -> builder::CtmDataNetworkReserveItem {
+impl CtmNetworkReserveItem {
+    pub fn builder() -> builder::CtmNetworkReserveItem {
         Default::default()
     }
 }
@@ -6823,21 +6823,21 @@ impl CtmDataNetworkReserveItem {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkReserveItemPgDown {
+pub enum CtmNetworkReserveItemPgDown {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkReserveItemPgDown {
-    fn from(value: &CtmDataNetworkReserveItemPgDown) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkReserveItemPgDown {
+    fn from(value: &CtmNetworkReserveItemPgDown) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkReserveItemPgDown {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkReserveItemPgDown {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkReserveItemPgDown {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkReserveItemPgDown {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -6862,26 +6862,26 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkReserveItemPgDo
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkReserveItemPgUp {
+pub enum CtmNetworkReserveItemPgUp {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkReserveItemPgUp {
-    fn from(value: &CtmDataNetworkReserveItemPgUp) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkReserveItemPgUp {
+    fn from(value: &CtmNetworkReserveItemPgUp) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkReserveItemPgUp {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkReserveItemPgUp {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkReserveItemPgUp {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkReserveItemPgUp {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
 }
-#[doc = "`CtmDataNetworkReserveItemReserveType`"]
+#[doc = "`CtmNetworkReserveItemReserveType`"]
 #[doc = r""]
 #[doc = r" <details><summary>JSON schema</summary>"]
 #[doc = r""]
@@ -6908,7 +6908,7 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkReserveItemPgUp
     PartialEq,
     PartialOrd,
 )]
-pub enum CtmDataNetworkReserveItemReserveType {
+pub enum CtmNetworkReserveItemReserveType {
     #[serde(rename = "PRIMARY")]
     Primary,
     #[serde(rename = "SECONDARY")]
@@ -6916,12 +6916,12 @@ pub enum CtmDataNetworkReserveItemReserveType {
     #[serde(rename = "TERTIARY")]
     Tertiary,
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkReserveItemReserveType {
-    fn from(value: &CtmDataNetworkReserveItemReserveType) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkReserveItemReserveType {
+    fn from(value: &CtmNetworkReserveItemReserveType) -> Self {
         value.clone()
     }
 }
-impl ::std::fmt::Display for CtmDataNetworkReserveItemReserveType {
+impl ::std::fmt::Display for CtmNetworkReserveItemReserveType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match *self {
             Self::Primary => write!(f, "PRIMARY"),
@@ -6930,7 +6930,7 @@ impl ::std::fmt::Display for CtmDataNetworkReserveItemReserveType {
         }
     }
 }
-impl ::std::str::FromStr for CtmDataNetworkReserveItemReserveType {
+impl ::std::str::FromStr for CtmNetworkReserveItemReserveType {
     type Err = self::error::ConversionError;
     fn from_str(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         match value {
@@ -6941,13 +6941,13 @@ impl ::std::str::FromStr for CtmDataNetworkReserveItemReserveType {
         }
     }
 }
-impl ::std::convert::TryFrom<&str> for CtmDataNetworkReserveItemReserveType {
+impl ::std::convert::TryFrom<&str> for CtmNetworkReserveItemReserveType {
     type Error = self::error::ConversionError;
     fn try_from(value: &str) -> ::std::result::Result<Self, self::error::ConversionError> {
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkReserveItemReserveType {
+impl ::std::convert::TryFrom<&::std::string::String> for CtmNetworkReserveItemReserveType {
     type Error = self::error::ConversionError;
     fn try_from(
         value: &::std::string::String,
@@ -6955,7 +6955,7 @@ impl ::std::convert::TryFrom<&::std::string::String> for CtmDataNetworkReserveIt
         value.parse()
     }
 }
-impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkReserveItemReserveType {
+impl ::std::convert::TryFrom<::std::string::String> for CtmNetworkReserveItemReserveType {
     type Error = self::error::ConversionError;
     fn try_from(
         value: ::std::string::String,
@@ -7048,16 +7048,16 @@ impl ::std::convert::TryFrom<::std::string::String> for CtmDataNetworkReserveIte
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkShuntItem {
+pub struct CtmNetworkShuntItem {
     #[doc = "[MVAr or pu] reactive power demand at v_bus = 1.0 pu, per step of each shunt section"]
-    pub bs: CtmDataNetworkShuntItemBs,
+    pub bs: CtmNetworkShuntItemBs,
     #[doc = "uid of bus to which shunt is connected to"]
     pub bus: Uid,
     #[doc = "additional shunt parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
     #[doc = "[MW or pu] active power demand at v_bus = 1.0 pu, per step of each shunt section"]
-    pub gs: CtmDataNetworkShuntItemGs,
+    pub gs: CtmNetworkShuntItemGs,
     #[doc = "shunt name"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub name: ::std::option::Option<::std::string::String>,
@@ -7065,17 +7065,17 @@ pub struct CtmDataNetworkShuntItem {
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub nominal_mva: ::std::option::Option<PositiveNumber>,
     #[doc = "upper bound for number of energized steps of shunt section (lower bound is always 0)"]
-    pub num_steps_ub: CtmDataNetworkShuntItemNumStepsUb,
+    pub num_steps_ub: CtmNetworkShuntItemNumStepsUb,
     pub status: Status,
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataNetworkShuntItem> for CtmDataNetworkShuntItem {
-    fn from(value: &CtmDataNetworkShuntItem) -> Self {
+impl ::std::convert::From<&CtmNetworkShuntItem> for CtmNetworkShuntItem {
+    fn from(value: &CtmNetworkShuntItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkShuntItem {
-    pub fn builder() -> builder::CtmDataNetworkShuntItem {
+impl CtmNetworkShuntItem {
+    pub fn builder() -> builder::CtmNetworkShuntItem {
         Default::default()
     }
 }
@@ -7102,21 +7102,21 @@ impl CtmDataNetworkShuntItem {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkShuntItemBs {
+pub enum CtmNetworkShuntItemBs {
     Variant0(f64),
     Variant1(::std::vec::Vec<f64>),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkShuntItemBs {
-    fn from(value: &CtmDataNetworkShuntItemBs) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkShuntItemBs {
+    fn from(value: &CtmNetworkShuntItemBs) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkShuntItemBs {
+impl ::std::convert::From<f64> for CtmNetworkShuntItemBs {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<::std::vec::Vec<f64>> for CtmDataNetworkShuntItemBs {
+impl ::std::convert::From<::std::vec::Vec<f64>> for CtmNetworkShuntItemBs {
     fn from(value: ::std::vec::Vec<f64>) -> Self {
         Self::Variant1(value)
     }
@@ -7144,21 +7144,21 @@ impl ::std::convert::From<::std::vec::Vec<f64>> for CtmDataNetworkShuntItemBs {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkShuntItemGs {
+pub enum CtmNetworkShuntItemGs {
     Variant0(NonnegativeNumber),
     Variant1(::std::vec::Vec<NonnegativeNumber>),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkShuntItemGs {
-    fn from(value: &CtmDataNetworkShuntItemGs) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkShuntItemGs {
+    fn from(value: &CtmNetworkShuntItemGs) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkShuntItemGs {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkShuntItemGs {
     fn from(value: NonnegativeNumber) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<::std::vec::Vec<NonnegativeNumber>> for CtmDataNetworkShuntItemGs {
+impl ::std::convert::From<::std::vec::Vec<NonnegativeNumber>> for CtmNetworkShuntItemGs {
     fn from(value: ::std::vec::Vec<NonnegativeNumber>) -> Self {
         Self::Variant1(value)
     }
@@ -7186,23 +7186,21 @@ impl ::std::convert::From<::std::vec::Vec<NonnegativeNumber>> for CtmDataNetwork
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkShuntItemNumStepsUb {
+pub enum CtmNetworkShuntItemNumStepsUb {
     Variant0(NonnegativeInteger),
     Variant1(::std::vec::Vec<NonnegativeInteger>),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkShuntItemNumStepsUb {
-    fn from(value: &CtmDataNetworkShuntItemNumStepsUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkShuntItemNumStepsUb {
+    fn from(value: &CtmNetworkShuntItemNumStepsUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeInteger> for CtmDataNetworkShuntItemNumStepsUb {
+impl ::std::convert::From<NonnegativeInteger> for CtmNetworkShuntItemNumStepsUb {
     fn from(value: NonnegativeInteger) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<::std::vec::Vec<NonnegativeInteger>>
-    for CtmDataNetworkShuntItemNumStepsUb
-{
+impl ::std::convert::From<::std::vec::Vec<NonnegativeInteger>> for CtmNetworkShuntItemNumStepsUb {
     fn from(value: ::std::vec::Vec<NonnegativeInteger>) -> Self {
         Self::Variant1(value)
     }
@@ -7349,22 +7347,22 @@ impl ::std::convert::From<::std::vec::Vec<NonnegativeInteger>>
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkStorageItem {
+pub struct CtmNetworkStorageItem {
     #[doc = "uid of bus to which generator is connected to"]
     pub bus: Uid,
     #[doc = "[-] charge efficiency, in (0, 1]"]
-    pub charge_efficiency: CtmDataNetworkStorageItemChargeEfficiency,
+    pub charge_efficiency: CtmNetworkStorageItemChargeEfficiency,
     #[doc = "[MW or pu] maximum rate of charge"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub charge_ub: ::std::option::Option<CtmDataNetworkStorageItemChargeUb>,
+    pub charge_ub: ::std::option::Option<CtmNetworkStorageItemChargeUb>,
     #[doc = "[kA or pu] converter current output rating"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub cm_ub: ::std::option::Option<NonnegativeNumber>,
     #[doc = "[-] discharge efficiency, in (0, 1]"]
-    pub discharge_efficiency: CtmDataNetworkStorageItemDischargeEfficiency,
+    pub discharge_efficiency: CtmNetworkStorageItemDischargeEfficiency,
     #[doc = "[MW or pu] maximum rate of discharge"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub discharge_ub: ::std::option::Option<CtmDataNetworkStorageItemDischargeUb>,
+    pub discharge_ub: ::std::option::Option<CtmNetworkStorageItemDischargeUb>,
     #[doc = "[MWh or pu*h] maximum state of charge"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub energy_ub: ::std::option::Option<NonnegativeNumber>,
@@ -7387,23 +7385,23 @@ pub struct CtmDataNetworkStorageItem {
     pub qs_ex: f64,
     #[doc = "[MVAr or pu] minumum reactive power injection"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub qs_lb: ::std::option::Option<CtmDataNetworkStorageItemQsLb>,
+    pub qs_lb: ::std::option::Option<CtmNetworkStorageItemQsLb>,
     #[doc = "[MVAr or pu] maximum reactive power injection"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub qs_ub: ::std::option::Option<CtmDataNetworkStorageItemQsUb>,
+    pub qs_ub: ::std::option::Option<CtmNetworkStorageItemQsUb>,
     #[doc = "[MVA or pu] converter apparent power rating"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub sm_ub: ::std::option::Option<NonnegativeNumber>,
     pub status: Status,
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataNetworkStorageItem> for CtmDataNetworkStorageItem {
-    fn from(value: &CtmDataNetworkStorageItem) -> Self {
+impl ::std::convert::From<&CtmNetworkStorageItem> for CtmNetworkStorageItem {
+    fn from(value: &CtmNetworkStorageItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkStorageItem {
-    pub fn builder() -> builder::CtmDataNetworkStorageItem {
+impl CtmNetworkStorageItem {
+    pub fn builder() -> builder::CtmNetworkStorageItem {
         Default::default()
     }
 }
@@ -7429,21 +7427,21 @@ impl CtmDataNetworkStorageItem {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkStorageItemChargeEfficiency {
+pub enum CtmNetworkStorageItemChargeEfficiency {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkStorageItemChargeEfficiency {
-    fn from(value: &CtmDataNetworkStorageItemChargeEfficiency) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkStorageItemChargeEfficiency {
+    fn from(value: &CtmNetworkStorageItemChargeEfficiency) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkStorageItemChargeEfficiency {
+impl ::std::convert::From<f64> for CtmNetworkStorageItemChargeEfficiency {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemChargeEfficiency {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkStorageItemChargeEfficiency {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -7468,21 +7466,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemChar
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkStorageItemChargeUb {
+pub enum CtmNetworkStorageItemChargeUb {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkStorageItemChargeUb {
-    fn from(value: &CtmDataNetworkStorageItemChargeUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkStorageItemChargeUb {
+    fn from(value: &CtmNetworkStorageItemChargeUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkStorageItemChargeUb {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkStorageItemChargeUb {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemChargeUb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkStorageItemChargeUb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -7509,21 +7507,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemChar
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkStorageItemDischargeEfficiency {
+pub enum CtmNetworkStorageItemDischargeEfficiency {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkStorageItemDischargeEfficiency {
-    fn from(value: &CtmDataNetworkStorageItemDischargeEfficiency) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkStorageItemDischargeEfficiency {
+    fn from(value: &CtmNetworkStorageItemDischargeEfficiency) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkStorageItemDischargeEfficiency {
+impl ::std::convert::From<f64> for CtmNetworkStorageItemDischargeEfficiency {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemDischargeEfficiency {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkStorageItemDischargeEfficiency {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -7548,21 +7546,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemDisc
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkStorageItemDischargeUb {
+pub enum CtmNetworkStorageItemDischargeUb {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkStorageItemDischargeUb {
-    fn from(value: &CtmDataNetworkStorageItemDischargeUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkStorageItemDischargeUb {
+    fn from(value: &CtmNetworkStorageItemDischargeUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkStorageItemDischargeUb {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkStorageItemDischargeUb {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemDischargeUb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkStorageItemDischargeUb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -7587,21 +7585,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemDisc
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkStorageItemQsLb {
+pub enum CtmNetworkStorageItemQsLb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkStorageItemQsLb {
-    fn from(value: &CtmDataNetworkStorageItemQsLb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkStorageItemQsLb {
+    fn from(value: &CtmNetworkStorageItemQsLb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkStorageItemQsLb {
+impl ::std::convert::From<f64> for CtmNetworkStorageItemQsLb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemQsLb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkStorageItemQsLb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
@@ -7626,26 +7624,26 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemQsLb
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkStorageItemQsUb {
+pub enum CtmNetworkStorageItemQsUb {
     Variant0(f64),
     Variant1(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkStorageItemQsUb {
-    fn from(value: &CtmDataNetworkStorageItemQsUb) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkStorageItemQsUb {
+    fn from(value: &CtmNetworkStorageItemQsUb) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<f64> for CtmDataNetworkStorageItemQsUb {
+impl ::std::convert::From<f64> for CtmNetworkStorageItemQsUb {
     fn from(value: f64) -> Self {
         Self::Variant0(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemQsUb {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkStorageItemQsUb {
     fn from(value: TimeSeriesReference) -> Self {
         Self::Variant1(value)
     }
 }
-#[doc = "`CtmDataNetworkSwitchItem`"]
+#[doc = "`CtmNetworkSwitchItem`"]
 #[doc = r""]
 #[doc = r" <details><summary>JSON schema</summary>"]
 #[doc = r""]
@@ -7697,7 +7695,7 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkStorageItemQsUb
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkSwitchItem {
+pub struct CtmNetworkSwitchItem {
     #[doc = "uid of bus at the from terminal of switch"]
     pub bus_fr: Uid,
     #[doc = "uid of bus at the to terminal of switch"]
@@ -7720,13 +7718,13 @@ pub struct CtmDataNetworkSwitchItem {
     pub status: Status,
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataNetworkSwitchItem> for CtmDataNetworkSwitchItem {
-    fn from(value: &CtmDataNetworkSwitchItem) -> Self {
+impl ::std::convert::From<&CtmNetworkSwitchItem> for CtmNetworkSwitchItem {
+    fn from(value: &CtmNetworkSwitchItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkSwitchItem {
-    pub fn builder() -> builder::CtmDataNetworkSwitchItem {
+impl CtmNetworkSwitchItem {
+    pub fn builder() -> builder::CtmNetworkSwitchItem {
         Default::default()
     }
 }
@@ -7899,7 +7897,7 @@ impl CtmDataNetworkSwitchItem {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkTransformerItem {
+pub struct CtmNetworkTransformerItem {
     pub b: f64,
     #[doc = "uid of bus at the from terminal of transformer"]
     pub bus_fr: Uid,
@@ -7907,13 +7905,13 @@ pub struct CtmDataNetworkTransformerItem {
     pub bus_to: Uid,
     #[doc = "[kA or pu] persistent current rating, referred to from side"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub cm_ub_a: ::std::option::Option<CtmDataNetworkTransformerItemCmUbA>,
+    pub cm_ub_a: ::std::option::Option<CtmNetworkTransformerItemCmUbA>,
     #[doc = "[kA or pu] 4-hour current rating, referred to from side"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub cm_ub_b: ::std::option::Option<CtmDataNetworkTransformerItemCmUbB>,
+    pub cm_ub_b: ::std::option::Option<CtmNetworkTransformerItemCmUbB>,
     #[doc = "[kA or pu] 15-minute current rating, referred to from side"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub cm_ub_c: ::std::option::Option<CtmDataNetworkTransformerItemCmUbC>,
+    pub cm_ub_c: ::std::option::Option<CtmNetworkTransformerItemCmUbC>,
     #[doc = "additional transformer parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
@@ -7933,40 +7931,40 @@ pub struct CtmDataNetworkTransformerItem {
     pub r: f64,
     #[doc = "[MVA or pu] persistent apparent power rating, referred to from side"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub sm_ub_a: ::std::option::Option<CtmDataNetworkTransformerItemSmUbA>,
+    pub sm_ub_a: ::std::option::Option<CtmNetworkTransformerItemSmUbA>,
     #[doc = "[MVA or pu] 4-hour apparent power rating, referred to from side"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub sm_ub_b: ::std::option::Option<CtmDataNetworkTransformerItemSmUbB>,
+    pub sm_ub_b: ::std::option::Option<CtmNetworkTransformerItemSmUbB>,
     #[doc = "[MVA or pu] 15-minute apparent power rating, referred to from side"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub sm_ub_c: ::std::option::Option<CtmDataNetworkTransformerItemSmUbC>,
+    pub sm_ub_c: ::std::option::Option<CtmNetworkTransformerItemSmUbC>,
     pub status: Status,
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ta_lb: ::std::option::Option<f64>,
     #[doc = "number of discrete steps between ta_lb and ta_ub (including limit values)"]
-    #[serde(default = "defaults::ctm_data_network_transformer_item_ta_steps")]
+    #[serde(default = "defaults::ctm_network_transformer_item_ta_steps")]
     pub ta_steps: PositiveInteger,
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ta_ub: ::std::option::Option<f64>,
     #[doc = "[-] minimum tap ratio (1.0 correspond to nominal ratio, inner_vm_from = vm_from * tap_value)"]
-    #[serde(default = "defaults::ctm_data_network_transformer_item_tm_lb")]
+    #[serde(default = "defaults::ctm_network_transformer_item_tm_lb")]
     pub tm_lb: PositiveNumber,
     #[doc = "number of discrete steps between tm_lb and tm_ub (including limit values)"]
-    #[serde(default = "defaults::ctm_data_network_transformer_item_tm_steps")]
+    #[serde(default = "defaults::ctm_network_transformer_item_tm_steps")]
     pub tm_steps: PositiveInteger,
     #[doc = "[-] maximum tap ratio (1.0 correspond to nominal ratio, inner_vm_from = vm_from * tap_value)"]
-    #[serde(default = "defaults::ctm_data_network_transformer_item_tm_ub")]
+    #[serde(default = "defaults::ctm_network_transformer_item_tm_ub")]
     pub tm_ub: PositiveNumber,
     pub uid: Uid,
     pub x: f64,
 }
-impl ::std::convert::From<&CtmDataNetworkTransformerItem> for CtmDataNetworkTransformerItem {
-    fn from(value: &CtmDataNetworkTransformerItem) -> Self {
+impl ::std::convert::From<&CtmNetworkTransformerItem> for CtmNetworkTransformerItem {
+    fn from(value: &CtmNetworkTransformerItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkTransformerItem {
-    pub fn builder() -> builder::CtmDataNetworkTransformerItem {
+impl CtmNetworkTransformerItem {
+    pub fn builder() -> builder::CtmNetworkTransformerItem {
         Default::default()
     }
 }
@@ -7990,21 +7988,21 @@ impl CtmDataNetworkTransformerItem {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkTransformerItemCmUbA {
+pub enum CtmNetworkTransformerItemCmUbA {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkTransformerItemCmUbA {
-    fn from(value: &CtmDataNetworkTransformerItemCmUbA) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkTransformerItemCmUbA {
+    fn from(value: &CtmNetworkTransformerItemCmUbA) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkTransformerItemCmUbA {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkTransformerItemCmUbA {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItemCmUbA {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkTransformerItemCmUbA {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -8029,21 +8027,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItem
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkTransformerItemCmUbB {
+pub enum CtmNetworkTransformerItemCmUbB {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkTransformerItemCmUbB {
-    fn from(value: &CtmDataNetworkTransformerItemCmUbB) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkTransformerItemCmUbB {
+    fn from(value: &CtmNetworkTransformerItemCmUbB) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkTransformerItemCmUbB {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkTransformerItemCmUbB {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItemCmUbB {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkTransformerItemCmUbB {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -8068,21 +8066,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItem
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkTransformerItemCmUbC {
+pub enum CtmNetworkTransformerItemCmUbC {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkTransformerItemCmUbC {
-    fn from(value: &CtmDataNetworkTransformerItemCmUbC) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkTransformerItemCmUbC {
+    fn from(value: &CtmNetworkTransformerItemCmUbC) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkTransformerItemCmUbC {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkTransformerItemCmUbC {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItemCmUbC {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkTransformerItemCmUbC {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -8107,21 +8105,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItem
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkTransformerItemSmUbA {
+pub enum CtmNetworkTransformerItemSmUbA {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkTransformerItemSmUbA {
-    fn from(value: &CtmDataNetworkTransformerItemSmUbA) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkTransformerItemSmUbA {
+    fn from(value: &CtmNetworkTransformerItemSmUbA) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkTransformerItemSmUbA {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkTransformerItemSmUbA {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItemSmUbA {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkTransformerItemSmUbA {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -8146,21 +8144,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItem
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkTransformerItemSmUbB {
+pub enum CtmNetworkTransformerItemSmUbB {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkTransformerItemSmUbB {
-    fn from(value: &CtmDataNetworkTransformerItemSmUbB) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkTransformerItemSmUbB {
+    fn from(value: &CtmNetworkTransformerItemSmUbB) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkTransformerItemSmUbB {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkTransformerItemSmUbB {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItemSmUbB {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkTransformerItemSmUbB {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -8185,21 +8183,21 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItem
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataNetworkTransformerItemSmUbC {
+pub enum CtmNetworkTransformerItemSmUbC {
     NonnegativeNumber(NonnegativeNumber),
     TimeSeriesReference(TimeSeriesReference),
 }
-impl ::std::convert::From<&Self> for CtmDataNetworkTransformerItemSmUbC {
-    fn from(value: &CtmDataNetworkTransformerItemSmUbC) -> Self {
+impl ::std::convert::From<&Self> for CtmNetworkTransformerItemSmUbC {
+    fn from(value: &CtmNetworkTransformerItemSmUbC) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeNumber> for CtmDataNetworkTransformerItemSmUbC {
+impl ::std::convert::From<NonnegativeNumber> for CtmNetworkTransformerItemSmUbC {
     fn from(value: NonnegativeNumber) -> Self {
         Self::NonnegativeNumber(value)
     }
 }
-impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItemSmUbC {
+impl ::std::convert::From<TimeSeriesReference> for CtmNetworkTransformerItemSmUbC {
     fn from(value: TimeSeriesReference) -> Self {
         Self::TimeSeriesReference(value)
     }
@@ -8236,7 +8234,7 @@ impl ::std::convert::From<TimeSeriesReference> for CtmDataNetworkTransformerItem
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataNetworkZoneItem {
+pub struct CtmNetworkZoneItem {
     #[doc = "additional zone parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
@@ -8247,13 +8245,13 @@ pub struct CtmDataNetworkZoneItem {
     pub status: Status,
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataNetworkZoneItem> for CtmDataNetworkZoneItem {
-    fn from(value: &CtmDataNetworkZoneItem) -> Self {
+impl ::std::convert::From<&CtmNetworkZoneItem> for CtmNetworkZoneItem {
+    fn from(value: &CtmNetworkZoneItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataNetworkZoneItem {
-    pub fn builder() -> builder::CtmDataNetworkZoneItem {
+impl CtmNetworkZoneItem {
+    pub fn builder() -> builder::CtmNetworkZoneItem {
         Default::default()
     }
 }
@@ -8514,30 +8512,30 @@ impl CtmDataNetworkZoneItem {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataTemporalBoundary {
+pub struct CtmTemporalBoundary {
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub bus: ::std::vec::Vec<CtmDataTemporalBoundaryBusItem>,
+    pub bus: ::std::vec::Vec<CtmTemporalBoundaryBusItem>,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub gen: ::std::vec::Vec<CtmDataTemporalBoundaryGenItem>,
-    pub global_params: CtmDataTemporalBoundaryGlobalParams,
+    pub gen: ::std::vec::Vec<CtmTemporalBoundaryGenItem>,
+    pub global_params: CtmTemporalBoundaryGlobalParams,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub hvdc_p2p: ::std::vec::Vec<CtmDataTemporalBoundaryHvdcP2pItem>,
+    pub hvdc_p2p: ::std::vec::Vec<CtmTemporalBoundaryHvdcP2pItem>,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub shunt: ::std::vec::Vec<CtmDataTemporalBoundaryShuntItem>,
+    pub shunt: ::std::vec::Vec<CtmTemporalBoundaryShuntItem>,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub storage: ::std::vec::Vec<CtmDataTemporalBoundaryStorageItem>,
+    pub storage: ::std::vec::Vec<CtmTemporalBoundaryStorageItem>,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub switch: ::std::vec::Vec<CtmDataTemporalBoundarySwitchItem>,
+    pub switch: ::std::vec::Vec<CtmTemporalBoundarySwitchItem>,
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
-    pub transformer: ::std::vec::Vec<CtmDataTemporalBoundaryTransformerItem>,
+    pub transformer: ::std::vec::Vec<CtmTemporalBoundaryTransformerItem>,
 }
-impl ::std::convert::From<&CtmDataTemporalBoundary> for CtmDataTemporalBoundary {
-    fn from(value: &CtmDataTemporalBoundary) -> Self {
+impl ::std::convert::From<&CtmTemporalBoundary> for CtmTemporalBoundary {
+    fn from(value: &CtmTemporalBoundary) -> Self {
         value.clone()
     }
 }
-impl CtmDataTemporalBoundary {
-    pub fn builder() -> builder::CtmDataTemporalBoundary {
+impl CtmTemporalBoundary {
+    pub fn builder() -> builder::CtmTemporalBoundary {
         Default::default()
     }
 }
@@ -8574,7 +8572,7 @@ impl CtmDataTemporalBoundary {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataTemporalBoundaryBusItem {
+pub struct CtmTemporalBoundaryBusItem {
     #[doc = "additional bus initial condition parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
@@ -8585,13 +8583,13 @@ pub struct CtmDataTemporalBoundaryBusItem {
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub vm: ::std::option::Option<PositiveNumber>,
 }
-impl ::std::convert::From<&CtmDataTemporalBoundaryBusItem> for CtmDataTemporalBoundaryBusItem {
-    fn from(value: &CtmDataTemporalBoundaryBusItem) -> Self {
+impl ::std::convert::From<&CtmTemporalBoundaryBusItem> for CtmTemporalBoundaryBusItem {
+    fn from(value: &CtmTemporalBoundaryBusItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataTemporalBoundaryBusItem {
-    pub fn builder() -> builder::CtmDataTemporalBoundaryBusItem {
+impl CtmTemporalBoundaryBusItem {
+    pub fn builder() -> builder::CtmTemporalBoundaryBusItem {
         Default::default()
     }
 }
@@ -8636,7 +8634,7 @@ impl CtmDataTemporalBoundaryBusItem {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataTemporalBoundaryGenItem {
+pub struct CtmTemporalBoundaryGenItem {
     #[doc = "[h] if in service, zero, else time the unit has been out of service"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub down_time: ::std::option::Option<NonnegativeNumber>,
@@ -8652,13 +8650,13 @@ pub struct CtmDataTemporalBoundaryGenItem {
     #[doc = "uid of generator this record refers to"]
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataTemporalBoundaryGenItem> for CtmDataTemporalBoundaryGenItem {
-    fn from(value: &CtmDataTemporalBoundaryGenItem) -> Self {
+impl ::std::convert::From<&CtmTemporalBoundaryGenItem> for CtmTemporalBoundaryGenItem {
+    fn from(value: &CtmTemporalBoundaryGenItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataTemporalBoundaryGenItem {
-    pub fn builder() -> builder::CtmDataTemporalBoundaryGenItem {
+impl CtmTemporalBoundaryGenItem {
+    pub fn builder() -> builder::CtmTemporalBoundaryGenItem {
         Default::default()
     }
 }
@@ -8683,19 +8681,17 @@ impl CtmDataTemporalBoundaryGenItem {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataTemporalBoundaryGlobalParams {
+pub struct CtmTemporalBoundaryGlobalParams {
     #[doc = "[seconds] time elapsed since temporal_boundary conditions where present in the system"]
     pub time_elapsed: NonnegativeNumber,
 }
-impl ::std::convert::From<&CtmDataTemporalBoundaryGlobalParams>
-    for CtmDataTemporalBoundaryGlobalParams
-{
-    fn from(value: &CtmDataTemporalBoundaryGlobalParams) -> Self {
+impl ::std::convert::From<&CtmTemporalBoundaryGlobalParams> for CtmTemporalBoundaryGlobalParams {
+    fn from(value: &CtmTemporalBoundaryGlobalParams) -> Self {
         value.clone()
     }
 }
-impl CtmDataTemporalBoundaryGlobalParams {
-    pub fn builder() -> builder::CtmDataTemporalBoundaryGlobalParams {
+impl CtmTemporalBoundaryGlobalParams {
+    pub fn builder() -> builder::CtmTemporalBoundaryGlobalParams {
         Default::default()
     }
 }
@@ -8749,7 +8745,7 @@ impl CtmDataTemporalBoundaryGlobalParams {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataTemporalBoundaryHvdcP2pItem {
+pub struct CtmTemporalBoundaryHvdcP2pItem {
     #[doc = "additional hvdc point-to-point line initial condition parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
@@ -8768,15 +8764,13 @@ pub struct CtmDataTemporalBoundaryHvdcP2pItem {
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub vm_dc_to: ::std::option::Option<PositiveNumber>,
 }
-impl ::std::convert::From<&CtmDataTemporalBoundaryHvdcP2pItem>
-    for CtmDataTemporalBoundaryHvdcP2pItem
-{
-    fn from(value: &CtmDataTemporalBoundaryHvdcP2pItem) -> Self {
+impl ::std::convert::From<&CtmTemporalBoundaryHvdcP2pItem> for CtmTemporalBoundaryHvdcP2pItem {
+    fn from(value: &CtmTemporalBoundaryHvdcP2pItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataTemporalBoundaryHvdcP2pItem {
-    pub fn builder() -> builder::CtmDataTemporalBoundaryHvdcP2pItem {
+impl CtmTemporalBoundaryHvdcP2pItem {
+    pub fn builder() -> builder::CtmTemporalBoundaryHvdcP2pItem {
         Default::default()
     }
 }
@@ -8819,22 +8813,22 @@ impl CtmDataTemporalBoundaryHvdcP2pItem {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataTemporalBoundaryShuntItem {
+pub struct CtmTemporalBoundaryShuntItem {
     #[doc = "additional shunt initial condition parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
     #[doc = "[-] number of initial energized steps per section"]
-    pub num_steps: CtmDataTemporalBoundaryShuntItemNumSteps,
+    pub num_steps: CtmTemporalBoundaryShuntItemNumSteps,
     #[doc = "uid of shunt this record refers to"]
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataTemporalBoundaryShuntItem> for CtmDataTemporalBoundaryShuntItem {
-    fn from(value: &CtmDataTemporalBoundaryShuntItem) -> Self {
+impl ::std::convert::From<&CtmTemporalBoundaryShuntItem> for CtmTemporalBoundaryShuntItem {
+    fn from(value: &CtmTemporalBoundaryShuntItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataTemporalBoundaryShuntItem {
-    pub fn builder() -> builder::CtmDataTemporalBoundaryShuntItem {
+impl CtmTemporalBoundaryShuntItem {
+    pub fn builder() -> builder::CtmTemporalBoundaryShuntItem {
         Default::default()
     }
 }
@@ -8861,22 +8855,22 @@ impl CtmDataTemporalBoundaryShuntItem {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataTemporalBoundaryShuntItemNumSteps {
+pub enum CtmTemporalBoundaryShuntItemNumSteps {
     Variant0(NonnegativeInteger),
     Variant1(::std::vec::Vec<NonnegativeInteger>),
 }
-impl ::std::convert::From<&Self> for CtmDataTemporalBoundaryShuntItemNumSteps {
-    fn from(value: &CtmDataTemporalBoundaryShuntItemNumSteps) -> Self {
+impl ::std::convert::From<&Self> for CtmTemporalBoundaryShuntItemNumSteps {
+    fn from(value: &CtmTemporalBoundaryShuntItemNumSteps) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<NonnegativeInteger> for CtmDataTemporalBoundaryShuntItemNumSteps {
+impl ::std::convert::From<NonnegativeInteger> for CtmTemporalBoundaryShuntItemNumSteps {
     fn from(value: NonnegativeInteger) -> Self {
         Self::Variant0(value)
     }
 }
 impl ::std::convert::From<::std::vec::Vec<NonnegativeInteger>>
-    for CtmDataTemporalBoundaryShuntItemNumSteps
+    for CtmTemporalBoundaryShuntItemNumSteps
 {
     fn from(value: ::std::vec::Vec<NonnegativeInteger>) -> Self {
         Self::Variant1(value)
@@ -8919,7 +8913,7 @@ impl ::std::convert::From<::std::vec::Vec<NonnegativeInteger>>
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataTemporalBoundaryStorageItem {
+pub struct CtmTemporalBoundaryStorageItem {
     #[doc = "[MWh or pu*h] initial state of charge"]
     pub energy: NonnegativeNumber,
     #[doc = "additional storage initial condition parameters currently not supported by CTM"]
@@ -8932,15 +8926,13 @@ pub struct CtmDataTemporalBoundaryStorageItem {
     #[doc = "uid of storage this record refers to"]
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataTemporalBoundaryStorageItem>
-    for CtmDataTemporalBoundaryStorageItem
-{
-    fn from(value: &CtmDataTemporalBoundaryStorageItem) -> Self {
+impl ::std::convert::From<&CtmTemporalBoundaryStorageItem> for CtmTemporalBoundaryStorageItem {
+    fn from(value: &CtmTemporalBoundaryStorageItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataTemporalBoundaryStorageItem {
-    pub fn builder() -> builder::CtmDataTemporalBoundaryStorageItem {
+impl CtmTemporalBoundaryStorageItem {
+    pub fn builder() -> builder::CtmTemporalBoundaryStorageItem {
         Default::default()
     }
 }
@@ -8973,7 +8965,7 @@ impl CtmDataTemporalBoundaryStorageItem {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataTemporalBoundarySwitchItem {
+pub struct CtmTemporalBoundarySwitchItem {
     #[doc = "additional switch initial condition parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
@@ -8982,15 +8974,13 @@ pub struct CtmDataTemporalBoundarySwitchItem {
     #[doc = "uid of switch this record refers to"]
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataTemporalBoundarySwitchItem>
-    for CtmDataTemporalBoundarySwitchItem
-{
-    fn from(value: &CtmDataTemporalBoundarySwitchItem) -> Self {
+impl ::std::convert::From<&CtmTemporalBoundarySwitchItem> for CtmTemporalBoundarySwitchItem {
+    fn from(value: &CtmTemporalBoundarySwitchItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataTemporalBoundarySwitchItem {
-    pub fn builder() -> builder::CtmDataTemporalBoundarySwitchItem {
+impl CtmTemporalBoundarySwitchItem {
+    pub fn builder() -> builder::CtmTemporalBoundarySwitchItem {
         Default::default()
     }
 }
@@ -9027,7 +9017,7 @@ impl CtmDataTemporalBoundarySwitchItem {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataTemporalBoundaryTransformerItem {
+pub struct CtmTemporalBoundaryTransformerItem {
     #[doc = "additional transformer initial condition parameters currently not supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
     pub ext: ::std::option::Option<::serde_json::Value>,
@@ -9036,15 +9026,15 @@ pub struct CtmDataTemporalBoundaryTransformerItem {
     pub tm: PositiveNumber,
     pub uid: Uid,
 }
-impl ::std::convert::From<&CtmDataTemporalBoundaryTransformerItem>
-    for CtmDataTemporalBoundaryTransformerItem
+impl ::std::convert::From<&CtmTemporalBoundaryTransformerItem>
+    for CtmTemporalBoundaryTransformerItem
 {
-    fn from(value: &CtmDataTemporalBoundaryTransformerItem) -> Self {
+    fn from(value: &CtmTemporalBoundaryTransformerItem) -> Self {
         value.clone()
     }
 }
-impl CtmDataTemporalBoundaryTransformerItem {
-    pub fn builder() -> builder::CtmDataTemporalBoundaryTransformerItem {
+impl CtmTemporalBoundaryTransformerItem {
+    pub fn builder() -> builder::CtmTemporalBoundaryTransformerItem {
         Default::default()
     }
 }
@@ -9112,7 +9102,7 @@ impl CtmDataTemporalBoundaryTransformerItem {
 #[doc = r" ```"]
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
-pub struct CtmDataTimeSeriesData {
+pub struct CtmTimeSeriesData {
     #[doc = "additional time series information not currently supported by CTM"]
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
     pub ext: ::std::vec::Vec<::serde_json::Value>,
@@ -9121,7 +9111,7 @@ pub struct CtmDataTimeSeriesData {
     pub name: ::std::vec::Vec<::std::string::String>,
     #[doc = "path to file containing all time series information or a separate path for each time series"]
     #[serde(default, skip_serializing_if = "::std::option::Option::is_none")]
-    pub path_to_file: ::std::option::Option<CtmDataTimeSeriesDataPathToFile>,
+    pub path_to_file: ::std::option::Option<CtmTimeSeriesDataPathToFile>,
     #[doc = "[seconds] seconds since epoch (Unix time) for each instant for which time series values are provided"]
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
     pub timestamp: ::std::vec::Vec<NonnegativeNumber>,
@@ -9131,13 +9121,13 @@ pub struct CtmDataTimeSeriesData {
     #[serde(default, skip_serializing_if = "::std::vec::Vec::is_empty")]
     pub values: ::std::vec::Vec<::std::vec::Vec<::serde_json::Value>>,
 }
-impl ::std::convert::From<&CtmDataTimeSeriesData> for CtmDataTimeSeriesData {
-    fn from(value: &CtmDataTimeSeriesData) -> Self {
+impl ::std::convert::From<&CtmTimeSeriesData> for CtmTimeSeriesData {
+    fn from(value: &CtmTimeSeriesData) -> Self {
         value.clone()
     }
 }
-impl CtmDataTimeSeriesData {
-    pub fn builder() -> builder::CtmDataTimeSeriesData {
+impl CtmTimeSeriesData {
+    pub fn builder() -> builder::CtmTimeSeriesData {
         Default::default()
     }
 }
@@ -9164,18 +9154,16 @@ impl CtmDataTimeSeriesData {
 #[doc = r" </details>"]
 #[derive(:: serde :: Deserialize, :: serde :: Serialize, Clone, Debug)]
 #[serde(untagged)]
-pub enum CtmDataTimeSeriesDataPathToFile {
+pub enum CtmTimeSeriesDataPathToFile {
     Variant0(::std::string::String),
     Variant1(::std::vec::Vec<::std::string::String>),
 }
-impl ::std::convert::From<&Self> for CtmDataTimeSeriesDataPathToFile {
-    fn from(value: &CtmDataTimeSeriesDataPathToFile) -> Self {
+impl ::std::convert::From<&Self> for CtmTimeSeriesDataPathToFile {
+    fn from(value: &CtmTimeSeriesDataPathToFile) -> Self {
         value.clone()
     }
 }
-impl ::std::convert::From<::std::vec::Vec<::std::string::String>>
-    for CtmDataTimeSeriesDataPathToFile
-{
+impl ::std::convert::From<::std::vec::Vec<::std::string::String>> for CtmTimeSeriesDataPathToFile {
     fn from(value: ::std::vec::Vec<::std::string::String>) -> Self {
         Self::Variant1(value)
     }
@@ -9756,17 +9744,16 @@ impl XyPairs {
 #[doc = r" Types for composing complex structures."]
 pub mod builder {
     #[derive(Clone, Debug)]
-    pub struct CtmData {
+    pub struct Ctm {
         ctm_version: ::std::result::Result<::std::string::String, ::std::string::String>,
-        network: ::std::result::Result<super::CtmDataNetwork, ::std::string::String>,
-        temporal_boundary:
-            ::std::result::Result<super::CtmDataTemporalBoundary, ::std::string::String>,
+        network: ::std::result::Result<super::CtmNetwork, ::std::string::String>,
+        temporal_boundary: ::std::result::Result<super::CtmTemporalBoundary, ::std::string::String>,
         time_series_data: ::std::result::Result<
-            ::std::option::Option<super::CtmDataTimeSeriesData>,
+            ::std::option::Option<super::CtmTimeSeriesData>,
             ::std::string::String,
         >,
     }
-    impl ::std::default::Default for CtmData {
+    impl ::std::default::Default for Ctm {
         fn default() -> Self {
             Self {
                 ctm_version: Err("no value supplied for ctm_version".to_string()),
@@ -9776,7 +9763,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmData {
+    impl Ctm {
         pub fn ctm_version<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::string::String>,
@@ -9789,7 +9776,7 @@ pub mod builder {
         }
         pub fn network<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataNetwork>,
+            T: ::std::convert::TryInto<super::CtmNetwork>,
             T::Error: ::std::fmt::Display,
         {
             self.network = value
@@ -9799,7 +9786,7 @@ pub mod builder {
         }
         pub fn temporal_boundary<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataTemporalBoundary>,
+            T: ::std::convert::TryInto<super::CtmTemporalBoundary>,
             T::Error: ::std::fmt::Display,
         {
             self.temporal_boundary = value.try_into().map_err(|e| {
@@ -9812,7 +9799,7 @@ pub mod builder {
         }
         pub fn time_series_data<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataTimeSeriesData>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmTimeSeriesData>>,
             T::Error: ::std::fmt::Display,
         {
             self.time_series_data = value.try_into().map_err(|e| {
@@ -9824,9 +9811,9 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmData> for super::CtmData {
+    impl ::std::convert::TryFrom<Ctm> for super::Ctm {
         type Error = super::error::ConversionError;
-        fn try_from(value: CtmData) -> ::std::result::Result<Self, super::error::ConversionError> {
+        fn try_from(value: Ctm) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 ctm_version: value.ctm_version?,
                 network: value.network?,
@@ -9835,8 +9822,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmData> for CtmData {
-        fn from(value: super::CtmData) -> Self {
+    impl ::std::convert::From<super::Ctm> for Ctm {
+        fn from(value: super::Ctm) -> Self {
             Self {
                 ctm_version: Ok(value.ctm_version),
                 network: Ok(value.network),
@@ -9846,59 +9833,54 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetwork {
+    pub struct CtmNetwork {
         ac_line: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkAcLineItem>,
+            ::std::vec::Vec<super::CtmNetworkAcLineItem>,
             ::std::string::String,
         >,
         area: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkAreaItem>,
+            ::std::vec::Vec<super::CtmNetworkAreaItem>,
             ::std::string::String,
         >,
-        bus: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkBusItem>,
-            ::std::string::String,
-        >,
-        gen: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkGenItem>,
-            ::std::string::String,
-        >,
-        global_params:
-            ::std::result::Result<super::CtmDataNetworkGlobalParams, ::std::string::String>,
+        bus:
+            ::std::result::Result<::std::vec::Vec<super::CtmNetworkBusItem>, ::std::string::String>,
+        gen:
+            ::std::result::Result<::std::vec::Vec<super::CtmNetworkGenItem>, ::std::string::String>,
+        global_params: ::std::result::Result<super::CtmNetworkGlobalParams, ::std::string::String>,
         hvdc_p2p: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkHvdcP2pItem>,
+            ::std::vec::Vec<super::CtmNetworkHvdcP2pItem>,
             ::std::string::String,
         >,
         load: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkLoadItem>,
+            ::std::vec::Vec<super::CtmNetworkLoadItem>,
             ::std::string::String,
         >,
         reserve: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkReserveItem>,
+            ::std::vec::Vec<super::CtmNetworkReserveItem>,
             ::std::string::String,
         >,
         shunt: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkShuntItem>,
+            ::std::vec::Vec<super::CtmNetworkShuntItem>,
             ::std::string::String,
         >,
         storage: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkStorageItem>,
+            ::std::vec::Vec<super::CtmNetworkStorageItem>,
             ::std::string::String,
         >,
         switch: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkSwitchItem>,
+            ::std::vec::Vec<super::CtmNetworkSwitchItem>,
             ::std::string::String,
         >,
         transformer: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkTransformerItem>,
+            ::std::vec::Vec<super::CtmNetworkTransformerItem>,
             ::std::string::String,
         >,
         zone: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataNetworkZoneItem>,
+            ::std::vec::Vec<super::CtmNetworkZoneItem>,
             ::std::string::String,
         >,
     }
-    impl ::std::default::Default for CtmDataNetwork {
+    impl ::std::default::Default for CtmNetwork {
         fn default() -> Self {
             Self {
                 ac_line: Ok(Default::default()),
@@ -9917,10 +9899,10 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetwork {
+    impl CtmNetwork {
         pub fn ac_line<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkAcLineItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkAcLineItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.ac_line = value
@@ -9930,7 +9912,7 @@ pub mod builder {
         }
         pub fn area<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkAreaItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkAreaItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.area = value
@@ -9940,7 +9922,7 @@ pub mod builder {
         }
         pub fn bus<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkBusItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkBusItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.bus = value
@@ -9950,7 +9932,7 @@ pub mod builder {
         }
         pub fn gen<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkGenItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkGenItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.gen = value
@@ -9960,7 +9942,7 @@ pub mod builder {
         }
         pub fn global_params<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataNetworkGlobalParams>,
+            T: ::std::convert::TryInto<super::CtmNetworkGlobalParams>,
             T::Error: ::std::fmt::Display,
         {
             self.global_params = value
@@ -9970,7 +9952,7 @@ pub mod builder {
         }
         pub fn hvdc_p2p<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkHvdcP2pItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkHvdcP2pItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.hvdc_p2p = value
@@ -9980,7 +9962,7 @@ pub mod builder {
         }
         pub fn load<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkLoadItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkLoadItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.load = value
@@ -9990,7 +9972,7 @@ pub mod builder {
         }
         pub fn reserve<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkReserveItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkReserveItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.reserve = value
@@ -10000,7 +9982,7 @@ pub mod builder {
         }
         pub fn shunt<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkShuntItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkShuntItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.shunt = value
@@ -10010,7 +9992,7 @@ pub mod builder {
         }
         pub fn storage<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkStorageItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkStorageItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.storage = value
@@ -10020,7 +10002,7 @@ pub mod builder {
         }
         pub fn switch<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkSwitchItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkSwitchItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.switch = value
@@ -10030,7 +10012,7 @@ pub mod builder {
         }
         pub fn transformer<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkTransformerItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkTransformerItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.transformer = value
@@ -10040,7 +10022,7 @@ pub mod builder {
         }
         pub fn zone<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataNetworkZoneItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmNetworkZoneItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.zone = value
@@ -10049,10 +10031,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetwork> for super::CtmDataNetwork {
+    impl ::std::convert::TryFrom<CtmNetwork> for super::CtmNetwork {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetwork,
+            value: CtmNetwork,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 ac_line: value.ac_line?,
@@ -10071,8 +10053,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetwork> for CtmDataNetwork {
-        fn from(value: super::CtmDataNetwork) -> Self {
+    impl ::std::convert::From<super::CtmNetwork> for CtmNetwork {
+        fn from(value: super::CtmNetwork) -> Self {
             Self {
                 ac_line: Ok(value.ac_line),
                 area: Ok(value.area),
@@ -10091,21 +10073,21 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkAcLineItem {
+    pub struct CtmNetworkAcLineItem {
         b_fr: ::std::result::Result<::std::option::Option<f64>, ::std::string::String>,
         b_to: ::std::result::Result<::std::option::Option<f64>, ::std::string::String>,
         bus_fr: ::std::result::Result<super::Uid, ::std::string::String>,
         bus_to: ::std::result::Result<super::Uid, ::std::string::String>,
         cm_ub_a: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkAcLineItemCmUbA>,
+            ::std::option::Option<super::CtmNetworkAcLineItemCmUbA>,
             ::std::string::String,
         >,
         cm_ub_b: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkAcLineItemCmUbB>,
+            ::std::option::Option<super::CtmNetworkAcLineItemCmUbB>,
             ::std::string::String,
         >,
         cm_ub_c: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkAcLineItemCmUbC>,
+            ::std::option::Option<super::CtmNetworkAcLineItemCmUbC>,
             ::std::string::String,
         >,
         ext: ::std::result::Result<
@@ -10132,15 +10114,15 @@ pub mod builder {
         >,
         r: ::std::result::Result<f64, ::std::string::String>,
         sm_ub_a: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkAcLineItemSmUbA>,
+            ::std::option::Option<super::CtmNetworkAcLineItemSmUbA>,
             ::std::string::String,
         >,
         sm_ub_b: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkAcLineItemSmUbB>,
+            ::std::option::Option<super::CtmNetworkAcLineItemSmUbB>,
             ::std::string::String,
         >,
         sm_ub_c: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkAcLineItemSmUbC>,
+            ::std::option::Option<super::CtmNetworkAcLineItemSmUbC>,
             ::std::string::String,
         >,
         status: ::std::result::Result<super::Status, ::std::string::String>,
@@ -10153,7 +10135,7 @@ pub mod builder {
         vad_ub: ::std::result::Result<::std::option::Option<f64>, ::std::string::String>,
         x: ::std::result::Result<f64, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataNetworkAcLineItem {
+    impl ::std::default::Default for CtmNetworkAcLineItem {
         fn default() -> Self {
             Self {
                 b_fr: Ok(Default::default()),
@@ -10183,7 +10165,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetworkAcLineItem {
+    impl CtmNetworkAcLineItem {
         pub fn b_fr<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<f64>>,
@@ -10226,7 +10208,7 @@ pub mod builder {
         }
         pub fn cm_ub_a<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkAcLineItemCmUbA>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkAcLineItemCmUbA>>,
             T::Error: ::std::fmt::Display,
         {
             self.cm_ub_a = value
@@ -10236,7 +10218,7 @@ pub mod builder {
         }
         pub fn cm_ub_b<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkAcLineItemCmUbB>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkAcLineItemCmUbB>>,
             T::Error: ::std::fmt::Display,
         {
             self.cm_ub_b = value
@@ -10246,7 +10228,7 @@ pub mod builder {
         }
         pub fn cm_ub_c<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkAcLineItemCmUbC>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkAcLineItemCmUbC>>,
             T::Error: ::std::fmt::Display,
         {
             self.cm_ub_c = value
@@ -10342,7 +10324,7 @@ pub mod builder {
         }
         pub fn sm_ub_a<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkAcLineItemSmUbA>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkAcLineItemSmUbA>>,
             T::Error: ::std::fmt::Display,
         {
             self.sm_ub_a = value
@@ -10352,7 +10334,7 @@ pub mod builder {
         }
         pub fn sm_ub_b<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkAcLineItemSmUbB>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkAcLineItemSmUbB>>,
             T::Error: ::std::fmt::Display,
         {
             self.sm_ub_b = value
@@ -10362,7 +10344,7 @@ pub mod builder {
         }
         pub fn sm_ub_c<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkAcLineItemSmUbC>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkAcLineItemSmUbC>>,
             T::Error: ::std::fmt::Display,
         {
             self.sm_ub_c = value
@@ -10434,10 +10416,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkAcLineItem> for super::CtmDataNetworkAcLineItem {
+    impl ::std::convert::TryFrom<CtmNetworkAcLineItem> for super::CtmNetworkAcLineItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkAcLineItem,
+            value: CtmNetworkAcLineItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 b_fr: value.b_fr?,
@@ -10467,8 +10449,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkAcLineItem> for CtmDataNetworkAcLineItem {
-        fn from(value: super::CtmDataNetworkAcLineItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkAcLineItem> for CtmNetworkAcLineItem {
+        fn from(value: super::CtmNetworkAcLineItem) -> Self {
             Self {
                 b_fr: Ok(value.b_fr),
                 b_to: Ok(value.b_to),
@@ -10498,7 +10480,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkAreaItem {
+    pub struct CtmNetworkAreaItem {
         ext: ::std::result::Result<
             ::std::option::Option<::serde_json::Value>,
             ::std::string::String,
@@ -10510,7 +10492,7 @@ pub mod builder {
         status: ::std::result::Result<super::Status, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataNetworkAreaItem {
+    impl ::std::default::Default for CtmNetworkAreaItem {
         fn default() -> Self {
             Self {
                 ext: Ok(Default::default()),
@@ -10520,7 +10502,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetworkAreaItem {
+    impl CtmNetworkAreaItem {
         pub fn ext<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<::serde_json::Value>>,
@@ -10562,10 +10544,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkAreaItem> for super::CtmDataNetworkAreaItem {
+    impl ::std::convert::TryFrom<CtmNetworkAreaItem> for super::CtmNetworkAreaItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkAreaItem,
+            value: CtmNetworkAreaItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 ext: value.ext?,
@@ -10575,8 +10557,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkAreaItem> for CtmDataNetworkAreaItem {
-        fn from(value: super::CtmDataNetworkAreaItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkAreaItem> for CtmNetworkAreaItem {
+        fn from(value: super::CtmNetworkAreaItem) -> Self {
             Self {
                 ext: Ok(value.ext),
                 name: Ok(value.name),
@@ -10586,7 +10568,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkBusItem {
+    pub struct CtmNetworkBusItem {
         area: ::std::result::Result<::std::option::Option<super::Uid>, ::std::string::String>,
         base_kv: ::std::result::Result<super::PositiveNumber, ::std::string::String>,
         ext: ::std::result::Result<
@@ -10599,21 +10581,21 @@ pub mod builder {
         >,
         status: ::std::result::Result<super::Status, ::std::string::String>,
         type_: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkBusItemType>,
+            ::std::option::Option<super::CtmNetworkBusItemType>,
             ::std::string::String,
         >,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
         vm_lb: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkBusItemVmLb>,
+            ::std::option::Option<super::CtmNetworkBusItemVmLb>,
             ::std::string::String,
         >,
         vm_ub: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkBusItemVmUb>,
+            ::std::option::Option<super::CtmNetworkBusItemVmUb>,
             ::std::string::String,
         >,
         zone: ::std::result::Result<::std::option::Option<super::Uid>, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataNetworkBusItem {
+    impl ::std::default::Default for CtmNetworkBusItem {
         fn default() -> Self {
             Self {
                 area: Ok(Default::default()),
@@ -10629,7 +10611,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetworkBusItem {
+    impl CtmNetworkBusItem {
         pub fn area<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<super::Uid>>,
@@ -10682,7 +10664,7 @@ pub mod builder {
         }
         pub fn type_<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkBusItemType>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkBusItemType>>,
             T::Error: ::std::fmt::Display,
         {
             self.type_ = value
@@ -10702,7 +10684,7 @@ pub mod builder {
         }
         pub fn vm_lb<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkBusItemVmLb>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkBusItemVmLb>>,
             T::Error: ::std::fmt::Display,
         {
             self.vm_lb = value
@@ -10712,7 +10694,7 @@ pub mod builder {
         }
         pub fn vm_ub<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkBusItemVmUb>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkBusItemVmUb>>,
             T::Error: ::std::fmt::Display,
         {
             self.vm_ub = value
@@ -10731,10 +10713,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkBusItem> for super::CtmDataNetworkBusItem {
+    impl ::std::convert::TryFrom<CtmNetworkBusItem> for super::CtmNetworkBusItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkBusItem,
+            value: CtmNetworkBusItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 area: value.area?,
@@ -10750,8 +10732,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkBusItem> for CtmDataNetworkBusItem {
-        fn from(value: super::CtmDataNetworkBusItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkBusItem> for CtmNetworkBusItem {
+        fn from(value: super::CtmNetworkBusItem) -> Self {
             Self {
                 area: Ok(value.area),
                 base_kv: Ok(value.base_kv),
@@ -10767,14 +10749,14 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkGenItem {
+    pub struct CtmNetworkGenItem {
         bus: ::std::result::Result<super::Uid, ::std::string::String>,
         cost_pg_model: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemCostPgModel>,
+            ::std::option::Option<super::CtmNetworkGenItemCostPgModel>,
             ::std::string::String,
         >,
         cost_pg_parameters: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemCostPgParameters>,
+            ::std::option::Option<super::CtmNetworkGenItemCostPgParameters>,
             ::std::string::String,
         >,
         down_time_lb: ::std::result::Result<
@@ -10820,49 +10802,49 @@ pub mod builder {
             ::std::string::String,
         >,
         pg_lb: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemPgLb>,
+            ::std::option::Option<super::CtmNetworkGenItemPgLb>,
             ::std::string::String,
         >,
         pg_ub: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemPgUb>,
+            ::std::option::Option<super::CtmNetworkGenItemPgUb>,
             ::std::string::String,
         >,
         primary_source: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemPrimarySource>,
+            ::std::option::Option<super::CtmNetworkGenItemPrimarySource>,
             ::std::string::String,
         >,
         primary_source_subtype: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemPrimarySourceSubtype>,
+            ::std::option::Option<super::CtmNetworkGenItemPrimarySourceSubtype>,
             ::std::string::String,
         >,
         qg_lb: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemQgLb>,
+            ::std::option::Option<super::CtmNetworkGenItemQgLb>,
             ::std::string::String,
         >,
         qg_ub: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemQgUb>,
+            ::std::option::Option<super::CtmNetworkGenItemQgUb>,
             ::std::string::String,
         >,
         scheduled_maintenance_rate:
             ::std::result::Result<::std::option::Option<f64>, ::std::string::String>,
         service_required: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemServiceRequired>,
+            ::std::option::Option<super::CtmNetworkGenItemServiceRequired>,
             ::std::string::String,
         >,
         shutdown_cost: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemShutdownCost>,
+            ::std::option::Option<super::CtmNetworkGenItemShutdownCost>,
             ::std::string::String,
         >,
         startup_cost_cold: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemStartupCostCold>,
+            ::std::option::Option<super::CtmNetworkGenItemStartupCostCold>,
             ::std::string::String,
         >,
         startup_cost_hot: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemStartupCostHot>,
+            ::std::option::Option<super::CtmNetworkGenItemStartupCostHot>,
             ::std::string::String,
         >,
         startup_cost_warm: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemStartupCostWarm>,
+            ::std::option::Option<super::CtmNetworkGenItemStartupCostWarm>,
             ::std::string::String,
         >,
         startup_time_hot: ::std::result::Result<
@@ -10876,11 +10858,11 @@ pub mod builder {
         status: ::std::result::Result<super::Status, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
         vm_setpoint: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkGenItemVmSetpoint>,
+            ::std::option::Option<super::CtmNetworkGenItemVmSetpoint>,
             ::std::string::String,
         >,
     }
-    impl ::std::default::Default for CtmDataNetworkGenItem {
+    impl ::std::default::Default for CtmNetworkGenItem {
         fn default() -> Self {
             Self {
                 bus: Err("no value supplied for bus".to_string()),
@@ -10917,7 +10899,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetworkGenItem {
+    impl CtmNetworkGenItem {
         pub fn bus<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<super::Uid>,
@@ -10930,9 +10912,7 @@ pub mod builder {
         }
         pub fn cost_pg_model<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkGenItemCostPgModel>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkGenItemCostPgModel>>,
             T::Error: ::std::fmt::Display,
         {
             self.cost_pg_model = value
@@ -10943,7 +10923,7 @@ pub mod builder {
         pub fn cost_pg_parameters<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkGenItemCostPgParameters>,
+                ::std::option::Option<super::CtmNetworkGenItemCostPgParameters>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -11082,7 +11062,7 @@ pub mod builder {
         }
         pub fn pg_lb<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkGenItemPgLb>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkGenItemPgLb>>,
             T::Error: ::std::fmt::Display,
         {
             self.pg_lb = value
@@ -11092,7 +11072,7 @@ pub mod builder {
         }
         pub fn pg_ub<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkGenItemPgUb>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkGenItemPgUb>>,
             T::Error: ::std::fmt::Display,
         {
             self.pg_ub = value
@@ -11103,7 +11083,7 @@ pub mod builder {
         pub fn primary_source<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkGenItemPrimarySource>,
+                ::std::option::Option<super::CtmNetworkGenItemPrimarySource>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -11115,7 +11095,7 @@ pub mod builder {
         pub fn primary_source_subtype<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkGenItemPrimarySourceSubtype>,
+                ::std::option::Option<super::CtmNetworkGenItemPrimarySourceSubtype>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -11129,7 +11109,7 @@ pub mod builder {
         }
         pub fn qg_lb<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkGenItemQgLb>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkGenItemQgLb>>,
             T::Error: ::std::fmt::Display,
         {
             self.qg_lb = value
@@ -11139,7 +11119,7 @@ pub mod builder {
         }
         pub fn qg_ub<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkGenItemQgUb>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkGenItemQgUb>>,
             T::Error: ::std::fmt::Display,
         {
             self.qg_ub = value
@@ -11163,7 +11143,7 @@ pub mod builder {
         pub fn service_required<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkGenItemServiceRequired>,
+                ::std::option::Option<super::CtmNetworkGenItemServiceRequired>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -11177,9 +11157,7 @@ pub mod builder {
         }
         pub fn shutdown_cost<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkGenItemShutdownCost>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkGenItemShutdownCost>>,
             T::Error: ::std::fmt::Display,
         {
             self.shutdown_cost = value
@@ -11190,7 +11168,7 @@ pub mod builder {
         pub fn startup_cost_cold<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkGenItemStartupCostCold>,
+                ::std::option::Option<super::CtmNetworkGenItemStartupCostCold>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -11205,7 +11183,7 @@ pub mod builder {
         pub fn startup_cost_hot<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkGenItemStartupCostHot>,
+                ::std::option::Option<super::CtmNetworkGenItemStartupCostHot>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -11220,7 +11198,7 @@ pub mod builder {
         pub fn startup_cost_warm<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkGenItemStartupCostWarm>,
+                ::std::option::Option<super::CtmNetworkGenItemStartupCostWarm>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -11280,9 +11258,7 @@ pub mod builder {
         }
         pub fn vm_setpoint<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkGenItemVmSetpoint>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkGenItemVmSetpoint>>,
             T::Error: ::std::fmt::Display,
         {
             self.vm_setpoint = value
@@ -11291,10 +11267,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkGenItem> for super::CtmDataNetworkGenItem {
+    impl ::std::convert::TryFrom<CtmNetworkGenItem> for super::CtmNetworkGenItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkGenItem,
+            value: CtmNetworkGenItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 bus: value.bus?,
@@ -11331,8 +11307,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkGenItem> for CtmDataNetworkGenItem {
-        fn from(value: super::CtmDataNetworkGenItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkGenItem> for CtmNetworkGenItem {
+        fn from(value: super::CtmNetworkGenItem) -> Self {
             Self {
                 bus: Ok(value.bus),
                 cost_pg_model: Ok(value.cost_pg_model),
@@ -11369,24 +11345,24 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkGlobalParams {
+    pub struct CtmNetworkGlobalParams {
         base_mva: ::std::result::Result<super::PositiveNumber, ::std::string::String>,
         bus_ref: ::std::result::Result<::std::option::Option<super::Uid>, ::std::string::String>,
         unit_convention: ::std::result::Result<
-            super::CtmDataNetworkGlobalParamsUnitConvention,
+            super::CtmNetworkGlobalParamsUnitConvention,
             ::std::string::String,
         >,
     }
-    impl ::std::default::Default for CtmDataNetworkGlobalParams {
+    impl ::std::default::Default for CtmNetworkGlobalParams {
         fn default() -> Self {
             Self {
-                base_mva: Ok(super::defaults::ctm_data_network_global_params_base_mva()),
+                base_mva: Ok(super::defaults::ctm_network_global_params_base_mva()),
                 bus_ref: Ok(Default::default()),
                 unit_convention: Err("no value supplied for unit_convention".to_string()),
             }
         }
     }
-    impl CtmDataNetworkGlobalParams {
+    impl CtmNetworkGlobalParams {
         pub fn base_mva<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<super::PositiveNumber>,
@@ -11409,7 +11385,7 @@ pub mod builder {
         }
         pub fn unit_convention<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataNetworkGlobalParamsUnitConvention>,
+            T: ::std::convert::TryInto<super::CtmNetworkGlobalParamsUnitConvention>,
             T::Error: ::std::fmt::Display,
         {
             self.unit_convention = value
@@ -11418,10 +11394,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkGlobalParams> for super::CtmDataNetworkGlobalParams {
+    impl ::std::convert::TryFrom<CtmNetworkGlobalParams> for super::CtmNetworkGlobalParams {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkGlobalParams,
+            value: CtmNetworkGlobalParams,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 base_mva: value.base_mva?,
@@ -11430,8 +11406,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkGlobalParams> for CtmDataNetworkGlobalParams {
-        fn from(value: super::CtmDataNetworkGlobalParams) -> Self {
+    impl ::std::convert::From<super::CtmNetworkGlobalParams> for CtmNetworkGlobalParams {
+        fn from(value: super::CtmNetworkGlobalParams) -> Self {
             Self {
                 base_mva: Ok(value.base_mva),
                 bus_ref: Ok(value.bus_ref),
@@ -11440,7 +11416,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkHvdcP2pItem {
+    pub struct CtmNetworkHvdcP2pItem {
         base_kv_dc: ::std::result::Result<
             ::std::option::Option<super::PositiveNumber>,
             ::std::string::String,
@@ -11448,11 +11424,11 @@ pub mod builder {
         bus_fr: ::std::result::Result<super::Uid, ::std::string::String>,
         bus_to: ::std::result::Result<super::Uid, ::std::string::String>,
         cm_ub_fr: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemCmUbFr>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemCmUbFr>,
             ::std::string::String,
         >,
         cm_ub_to: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemCmUbTo>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemCmUbTo>,
             ::std::string::String,
         >,
         ext: ::std::result::Result<
@@ -11472,19 +11448,19 @@ pub mod builder {
         >,
         p: ::std::result::Result<::std::option::Option<i64>, ::std::string::String>,
         pdc_fr_lb: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemPdcFrLb>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemPdcFrLb>,
             ::std::string::String,
         >,
         pdc_fr_ub: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemPdcFrUb>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemPdcFrUb>,
             ::std::string::String,
         >,
         pdc_to_lb: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemPdcToLb>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemPdcToLb>,
             ::std::string::String,
         >,
         pdc_to_ub: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemPdcToUb>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemPdcToUb>,
             ::std::string::String,
         >,
         persistent_outage_duration: ::std::result::Result<
@@ -11498,29 +11474,29 @@ pub mod builder {
         phi_lb: ::std::result::Result<::std::option::Option<f64>, ::std::string::String>,
         phi_ub: ::std::result::Result<::std::option::Option<f64>, ::std::string::String>,
         qdc_fr_lb: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemQdcFrLb>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemQdcFrLb>,
             ::std::string::String,
         >,
         qdc_fr_ub: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemQdcFrUb>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemQdcFrUb>,
             ::std::string::String,
         >,
         qdc_to_lb: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemQdcToLb>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemQdcToLb>,
             ::std::string::String,
         >,
         qdc_to_ub: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemQdcToUb>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemQdcToUb>,
             ::std::string::String,
         >,
         r: ::std::result::Result<super::NonnegativeNumber, ::std::string::String>,
         sm_ub: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemSmUb>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemSmUb>,
             ::std::string::String,
         >,
         status: ::std::result::Result<super::Status, ::std::string::String>,
         technology: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkHvdcP2pItemTechnology>,
+            ::std::option::Option<super::CtmNetworkHvdcP2pItemTechnology>,
             ::std::string::String,
         >,
         transient_outage_rate: ::std::result::Result<
@@ -11537,7 +11513,7 @@ pub mod builder {
             ::std::string::String,
         >,
     }
-    impl ::std::default::Default for CtmDataNetworkHvdcP2pItem {
+    impl ::std::default::Default for CtmNetworkHvdcP2pItem {
         fn default() -> Self {
             Self {
                 base_kv_dc: Ok(Default::default()),
@@ -11546,9 +11522,9 @@ pub mod builder {
                 cm_ub_fr: Ok(Default::default()),
                 cm_ub_to: Ok(Default::default()),
                 ext: Ok(Default::default()),
-                loss_a: Ok(super::defaults::ctm_data_network_hvdc_p2p_item_loss_a()),
-                loss_b: Ok(super::defaults::ctm_data_network_hvdc_p2p_item_loss_b()),
-                loss_c: Ok(super::defaults::ctm_data_network_hvdc_p2p_item_loss_c()),
+                loss_a: Ok(super::defaults::ctm_network_hvdc_p2p_item_loss_a()),
+                loss_b: Ok(super::defaults::ctm_network_hvdc_p2p_item_loss_b()),
+                loss_c: Ok(super::defaults::ctm_network_hvdc_p2p_item_loss_c()),
                 name: Ok(Default::default()),
                 nominal_mva: Ok(Default::default()),
                 p: Ok(Default::default()),
@@ -11564,7 +11540,7 @@ pub mod builder {
                 qdc_fr_ub: Ok(Default::default()),
                 qdc_to_lb: Ok(Default::default()),
                 qdc_to_ub: Ok(Default::default()),
-                r: Ok(super::defaults::ctm_data_network_hvdc_p2p_item_r()),
+                r: Ok(super::defaults::ctm_network_hvdc_p2p_item_r()),
                 sm_ub: Ok(Default::default()),
                 status: Err("no value supplied for status".to_string()),
                 technology: Ok(Default::default()),
@@ -11575,7 +11551,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetworkHvdcP2pItem {
+    impl CtmNetworkHvdcP2pItem {
         pub fn base_kv_dc<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<super::PositiveNumber>>,
@@ -11608,9 +11584,7 @@ pub mod builder {
         }
         pub fn cm_ub_fr<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkHvdcP2pItemCmUbFr>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkHvdcP2pItemCmUbFr>>,
             T::Error: ::std::fmt::Display,
         {
             self.cm_ub_fr = value
@@ -11620,9 +11594,7 @@ pub mod builder {
         }
         pub fn cm_ub_to<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkHvdcP2pItemCmUbTo>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkHvdcP2pItemCmUbTo>>,
             T::Error: ::std::fmt::Display,
         {
             self.cm_ub_to = value
@@ -11702,9 +11674,7 @@ pub mod builder {
         }
         pub fn pdc_fr_lb<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkHvdcP2pItemPdcFrLb>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkHvdcP2pItemPdcFrLb>>,
             T::Error: ::std::fmt::Display,
         {
             self.pdc_fr_lb = value
@@ -11714,9 +11684,7 @@ pub mod builder {
         }
         pub fn pdc_fr_ub<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkHvdcP2pItemPdcFrUb>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkHvdcP2pItemPdcFrUb>>,
             T::Error: ::std::fmt::Display,
         {
             self.pdc_fr_ub = value
@@ -11726,9 +11694,7 @@ pub mod builder {
         }
         pub fn pdc_to_lb<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkHvdcP2pItemPdcToLb>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkHvdcP2pItemPdcToLb>>,
             T::Error: ::std::fmt::Display,
         {
             self.pdc_to_lb = value
@@ -11738,9 +11704,7 @@ pub mod builder {
         }
         pub fn pdc_to_ub<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkHvdcP2pItemPdcToUb>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkHvdcP2pItemPdcToUb>>,
             T::Error: ::std::fmt::Display,
         {
             self.pdc_to_ub = value
@@ -11796,9 +11760,7 @@ pub mod builder {
         }
         pub fn qdc_fr_lb<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkHvdcP2pItemQdcFrLb>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkHvdcP2pItemQdcFrLb>>,
             T::Error: ::std::fmt::Display,
         {
             self.qdc_fr_lb = value
@@ -11808,9 +11770,7 @@ pub mod builder {
         }
         pub fn qdc_fr_ub<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkHvdcP2pItemQdcFrUb>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkHvdcP2pItemQdcFrUb>>,
             T::Error: ::std::fmt::Display,
         {
             self.qdc_fr_ub = value
@@ -11820,9 +11780,7 @@ pub mod builder {
         }
         pub fn qdc_to_lb<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkHvdcP2pItemQdcToLb>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkHvdcP2pItemQdcToLb>>,
             T::Error: ::std::fmt::Display,
         {
             self.qdc_to_lb = value
@@ -11832,9 +11790,7 @@ pub mod builder {
         }
         pub fn qdc_to_ub<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkHvdcP2pItemQdcToUb>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkHvdcP2pItemQdcToUb>>,
             T::Error: ::std::fmt::Display,
         {
             self.qdc_to_ub = value
@@ -11854,7 +11810,7 @@ pub mod builder {
         }
         pub fn sm_ub<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkHvdcP2pItemSmUb>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkHvdcP2pItemSmUb>>,
             T::Error: ::std::fmt::Display,
         {
             self.sm_ub = value
@@ -11875,7 +11831,7 @@ pub mod builder {
         pub fn technology<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkHvdcP2pItemTechnology>,
+                ::std::option::Option<super::CtmNetworkHvdcP2pItemTechnology>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -11928,10 +11884,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkHvdcP2pItem> for super::CtmDataNetworkHvdcP2pItem {
+    impl ::std::convert::TryFrom<CtmNetworkHvdcP2pItem> for super::CtmNetworkHvdcP2pItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkHvdcP2pItem,
+            value: CtmNetworkHvdcP2pItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 base_kv_dc: value.base_kv_dc?,
@@ -11969,8 +11925,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkHvdcP2pItem> for CtmDataNetworkHvdcP2pItem {
-        fn from(value: super::CtmDataNetworkHvdcP2pItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkHvdcP2pItem> for CtmNetworkHvdcP2pItem {
+        fn from(value: super::CtmNetworkHvdcP2pItem) -> Self {
             Self {
                 base_kv_dc: Ok(value.base_kv_dc),
                 bus_fr: Ok(value.bus_fr),
@@ -12008,7 +11964,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkLoadItem {
+    pub struct CtmNetworkLoadItem {
         bus: ::std::result::Result<super::Uid, ::std::string::String>,
         ext: ::std::result::Result<
             ::std::option::Option<::serde_json::Value>,
@@ -12022,28 +11978,28 @@ pub mod builder {
             ::std::option::Option<super::PositiveNumber>,
             ::std::string::String,
         >,
-        pd: ::std::result::Result<super::CtmDataNetworkLoadItemPd, ::std::string::String>,
+        pd: ::std::result::Result<super::CtmNetworkLoadItemPd, ::std::string::String>,
         pd_i: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkLoadItemPdI>,
+            ::std::option::Option<super::CtmNetworkLoadItemPdI>,
             ::std::string::String,
         >,
         pd_y: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkLoadItemPdY>,
+            ::std::option::Option<super::CtmNetworkLoadItemPdY>,
             ::std::string::String,
         >,
-        qd: ::std::result::Result<super::CtmDataNetworkLoadItemQd, ::std::string::String>,
+        qd: ::std::result::Result<super::CtmNetworkLoadItemQd, ::std::string::String>,
         qd_i: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkLoadItemQdI>,
+            ::std::option::Option<super::CtmNetworkLoadItemQdI>,
             ::std::string::String,
         >,
         qd_y: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkLoadItemQdY>,
+            ::std::option::Option<super::CtmNetworkLoadItemQdY>,
             ::std::string::String,
         >,
         status: ::std::result::Result<super::Status, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataNetworkLoadItem {
+    impl ::std::default::Default for CtmNetworkLoadItem {
         fn default() -> Self {
             Self {
                 bus: Err("no value supplied for bus".to_string()),
@@ -12061,7 +12017,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetworkLoadItem {
+    impl CtmNetworkLoadItem {
         pub fn bus<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<super::Uid>,
@@ -12104,7 +12060,7 @@ pub mod builder {
         }
         pub fn pd<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataNetworkLoadItemPd>,
+            T: ::std::convert::TryInto<super::CtmNetworkLoadItemPd>,
             T::Error: ::std::fmt::Display,
         {
             self.pd = value
@@ -12114,7 +12070,7 @@ pub mod builder {
         }
         pub fn pd_i<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkLoadItemPdI>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkLoadItemPdI>>,
             T::Error: ::std::fmt::Display,
         {
             self.pd_i = value
@@ -12124,7 +12080,7 @@ pub mod builder {
         }
         pub fn pd_y<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkLoadItemPdY>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkLoadItemPdY>>,
             T::Error: ::std::fmt::Display,
         {
             self.pd_y = value
@@ -12134,7 +12090,7 @@ pub mod builder {
         }
         pub fn qd<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataNetworkLoadItemQd>,
+            T: ::std::convert::TryInto<super::CtmNetworkLoadItemQd>,
             T::Error: ::std::fmt::Display,
         {
             self.qd = value
@@ -12144,7 +12100,7 @@ pub mod builder {
         }
         pub fn qd_i<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkLoadItemQdI>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkLoadItemQdI>>,
             T::Error: ::std::fmt::Display,
         {
             self.qd_i = value
@@ -12154,7 +12110,7 @@ pub mod builder {
         }
         pub fn qd_y<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkLoadItemQdY>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkLoadItemQdY>>,
             T::Error: ::std::fmt::Display,
         {
             self.qd_y = value
@@ -12183,10 +12139,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkLoadItem> for super::CtmDataNetworkLoadItem {
+    impl ::std::convert::TryFrom<CtmNetworkLoadItem> for super::CtmNetworkLoadItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkLoadItem,
+            value: CtmNetworkLoadItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 bus: value.bus?,
@@ -12204,8 +12160,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkLoadItem> for CtmDataNetworkLoadItem {
-        fn from(value: super::CtmDataNetworkLoadItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkLoadItem> for CtmNetworkLoadItem {
+        fn from(value: super::CtmNetworkLoadItem) -> Self {
             Self {
                 bus: Ok(value.bus),
                 ext: Ok(value.ext),
@@ -12223,7 +12179,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkReserveItem {
+    pub struct CtmNetworkReserveItem {
         ext: ::std::result::Result<
             ::std::option::Option<::serde_json::Value>,
             ::std::string::String,
@@ -12234,21 +12190,19 @@ pub mod builder {
         >,
         participants: ::std::result::Result<::std::vec::Vec<super::Uid>, ::std::string::String>,
         pg_down: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkReserveItemPgDown>,
+            ::std::option::Option<super::CtmNetworkReserveItemPgDown>,
             ::std::string::String,
         >,
         pg_up: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkReserveItemPgUp>,
+            ::std::option::Option<super::CtmNetworkReserveItemPgUp>,
             ::std::string::String,
         >,
-        reserve_type: ::std::result::Result<
-            super::CtmDataNetworkReserveItemReserveType,
-            ::std::string::String,
-        >,
+        reserve_type:
+            ::std::result::Result<super::CtmNetworkReserveItemReserveType, ::std::string::String>,
         status: ::std::result::Result<super::Status, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataNetworkReserveItem {
+    impl ::std::default::Default for CtmNetworkReserveItem {
         fn default() -> Self {
             Self {
                 ext: Ok(Default::default()),
@@ -12262,7 +12216,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetworkReserveItem {
+    impl CtmNetworkReserveItem {
         pub fn ext<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<::serde_json::Value>>,
@@ -12295,9 +12249,7 @@ pub mod builder {
         }
         pub fn pg_down<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkReserveItemPgDown>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkReserveItemPgDown>>,
             T::Error: ::std::fmt::Display,
         {
             self.pg_down = value
@@ -12307,7 +12259,7 @@ pub mod builder {
         }
         pub fn pg_up<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkReserveItemPgUp>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkReserveItemPgUp>>,
             T::Error: ::std::fmt::Display,
         {
             self.pg_up = value
@@ -12317,7 +12269,7 @@ pub mod builder {
         }
         pub fn reserve_type<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataNetworkReserveItemReserveType>,
+            T: ::std::convert::TryInto<super::CtmNetworkReserveItemReserveType>,
             T::Error: ::std::fmt::Display,
         {
             self.reserve_type = value
@@ -12346,10 +12298,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkReserveItem> for super::CtmDataNetworkReserveItem {
+    impl ::std::convert::TryFrom<CtmNetworkReserveItem> for super::CtmNetworkReserveItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkReserveItem,
+            value: CtmNetworkReserveItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 ext: value.ext?,
@@ -12363,8 +12315,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkReserveItem> for CtmDataNetworkReserveItem {
-        fn from(value: super::CtmDataNetworkReserveItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkReserveItem> for CtmNetworkReserveItem {
+        fn from(value: super::CtmNetworkReserveItem) -> Self {
             Self {
                 ext: Ok(value.ext),
                 name: Ok(value.name),
@@ -12378,14 +12330,14 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkShuntItem {
-        bs: ::std::result::Result<super::CtmDataNetworkShuntItemBs, ::std::string::String>,
+    pub struct CtmNetworkShuntItem {
+        bs: ::std::result::Result<super::CtmNetworkShuntItemBs, ::std::string::String>,
         bus: ::std::result::Result<super::Uid, ::std::string::String>,
         ext: ::std::result::Result<
             ::std::option::Option<::serde_json::Value>,
             ::std::string::String,
         >,
-        gs: ::std::result::Result<super::CtmDataNetworkShuntItemGs, ::std::string::String>,
+        gs: ::std::result::Result<super::CtmNetworkShuntItemGs, ::std::string::String>,
         name: ::std::result::Result<
             ::std::option::Option<::std::string::String>,
             ::std::string::String,
@@ -12395,11 +12347,11 @@ pub mod builder {
             ::std::string::String,
         >,
         num_steps_ub:
-            ::std::result::Result<super::CtmDataNetworkShuntItemNumStepsUb, ::std::string::String>,
+            ::std::result::Result<super::CtmNetworkShuntItemNumStepsUb, ::std::string::String>,
         status: ::std::result::Result<super::Status, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataNetworkShuntItem {
+    impl ::std::default::Default for CtmNetworkShuntItem {
         fn default() -> Self {
             Self {
                 bs: Err("no value supplied for bs".to_string()),
@@ -12414,10 +12366,10 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetworkShuntItem {
+    impl CtmNetworkShuntItem {
         pub fn bs<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataNetworkShuntItemBs>,
+            T: ::std::convert::TryInto<super::CtmNetworkShuntItemBs>,
             T::Error: ::std::fmt::Display,
         {
             self.bs = value
@@ -12447,7 +12399,7 @@ pub mod builder {
         }
         pub fn gs<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataNetworkShuntItemGs>,
+            T: ::std::convert::TryInto<super::CtmNetworkShuntItemGs>,
             T::Error: ::std::fmt::Display,
         {
             self.gs = value
@@ -12477,7 +12429,7 @@ pub mod builder {
         }
         pub fn num_steps_ub<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataNetworkShuntItemNumStepsUb>,
+            T: ::std::convert::TryInto<super::CtmNetworkShuntItemNumStepsUb>,
             T::Error: ::std::fmt::Display,
         {
             self.num_steps_ub = value
@@ -12506,10 +12458,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkShuntItem> for super::CtmDataNetworkShuntItem {
+    impl ::std::convert::TryFrom<CtmNetworkShuntItem> for super::CtmNetworkShuntItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkShuntItem,
+            value: CtmNetworkShuntItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 bs: value.bs?,
@@ -12524,8 +12476,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkShuntItem> for CtmDataNetworkShuntItem {
-        fn from(value: super::CtmDataNetworkShuntItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkShuntItem> for CtmNetworkShuntItem {
+        fn from(value: super::CtmNetworkShuntItem) -> Self {
             Self {
                 bs: Ok(value.bs),
                 bus: Ok(value.bus),
@@ -12540,14 +12492,14 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkStorageItem {
+    pub struct CtmNetworkStorageItem {
         bus: ::std::result::Result<super::Uid, ::std::string::String>,
         charge_efficiency: ::std::result::Result<
-            super::CtmDataNetworkStorageItemChargeEfficiency,
+            super::CtmNetworkStorageItemChargeEfficiency,
             ::std::string::String,
         >,
         charge_ub: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkStorageItemChargeUb>,
+            ::std::option::Option<super::CtmNetworkStorageItemChargeUb>,
             ::std::string::String,
         >,
         cm_ub: ::std::result::Result<
@@ -12555,11 +12507,11 @@ pub mod builder {
             ::std::string::String,
         >,
         discharge_efficiency: ::std::result::Result<
-            super::CtmDataNetworkStorageItemDischargeEfficiency,
+            super::CtmNetworkStorageItemDischargeEfficiency,
             ::std::string::String,
         >,
         discharge_ub: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkStorageItemDischargeUb>,
+            ::std::option::Option<super::CtmNetworkStorageItemDischargeUb>,
             ::std::string::String,
         >,
         energy_ub: ::std::result::Result<
@@ -12589,11 +12541,11 @@ pub mod builder {
         ps_ex: ::std::result::Result<f64, ::std::string::String>,
         qs_ex: ::std::result::Result<f64, ::std::string::String>,
         qs_lb: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkStorageItemQsLb>,
+            ::std::option::Option<super::CtmNetworkStorageItemQsLb>,
             ::std::string::String,
         >,
         qs_ub: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkStorageItemQsUb>,
+            ::std::option::Option<super::CtmNetworkStorageItemQsUb>,
             ::std::string::String,
         >,
         sm_ub: ::std::result::Result<
@@ -12603,7 +12555,7 @@ pub mod builder {
         status: ::std::result::Result<super::Status, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataNetworkStorageItem {
+    impl ::std::default::Default for CtmNetworkStorageItem {
         fn default() -> Self {
             Self {
                 bus: Err("no value supplied for bus".to_string()),
@@ -12628,7 +12580,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetworkStorageItem {
+    impl CtmNetworkStorageItem {
         pub fn bus<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<super::Uid>,
@@ -12641,7 +12593,7 @@ pub mod builder {
         }
         pub fn charge_efficiency<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataNetworkStorageItemChargeEfficiency>,
+            T: ::std::convert::TryInto<super::CtmNetworkStorageItemChargeEfficiency>,
             T::Error: ::std::fmt::Display,
         {
             self.charge_efficiency = value.try_into().map_err(|e| {
@@ -12654,9 +12606,7 @@ pub mod builder {
         }
         pub fn charge_ub<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkStorageItemChargeUb>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkStorageItemChargeUb>>,
             T::Error: ::std::fmt::Display,
         {
             self.charge_ub = value
@@ -12676,7 +12626,7 @@ pub mod builder {
         }
         pub fn discharge_efficiency<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataNetworkStorageItemDischargeEfficiency>,
+            T: ::std::convert::TryInto<super::CtmNetworkStorageItemDischargeEfficiency>,
             T::Error: ::std::fmt::Display,
         {
             self.discharge_efficiency = value.try_into().map_err(|e| {
@@ -12690,7 +12640,7 @@ pub mod builder {
         pub fn discharge_ub<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkStorageItemDischargeUb>,
+                ::std::option::Option<super::CtmNetworkStorageItemDischargeUb>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -12781,7 +12731,7 @@ pub mod builder {
         }
         pub fn qs_lb<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkStorageItemQsLb>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkStorageItemQsLb>>,
             T::Error: ::std::fmt::Display,
         {
             self.qs_lb = value
@@ -12791,7 +12741,7 @@ pub mod builder {
         }
         pub fn qs_ub<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::option::Option<super::CtmDataNetworkStorageItemQsUb>>,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmNetworkStorageItemQsUb>>,
             T::Error: ::std::fmt::Display,
         {
             self.qs_ub = value
@@ -12830,10 +12780,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkStorageItem> for super::CtmDataNetworkStorageItem {
+    impl ::std::convert::TryFrom<CtmNetworkStorageItem> for super::CtmNetworkStorageItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkStorageItem,
+            value: CtmNetworkStorageItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 bus: value.bus?,
@@ -12858,8 +12808,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkStorageItem> for CtmDataNetworkStorageItem {
-        fn from(value: super::CtmDataNetworkStorageItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkStorageItem> for CtmNetworkStorageItem {
+        fn from(value: super::CtmNetworkStorageItem) -> Self {
             Self {
                 bus: Ok(value.bus),
                 charge_efficiency: Ok(value.charge_efficiency),
@@ -12884,7 +12834,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkSwitchItem {
+    pub struct CtmNetworkSwitchItem {
         bus_fr: ::std::result::Result<super::Uid, ::std::string::String>,
         bus_to: ::std::result::Result<super::Uid, ::std::string::String>,
         cm_ub: ::std::result::Result<
@@ -12910,7 +12860,7 @@ pub mod builder {
         status: ::std::result::Result<super::Status, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataNetworkSwitchItem {
+    impl ::std::default::Default for CtmNetworkSwitchItem {
         fn default() -> Self {
             Self {
                 bus_fr: Err("no value supplied for bus_fr".to_string()),
@@ -12925,7 +12875,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetworkSwitchItem {
+    impl CtmNetworkSwitchItem {
         pub fn bus_fr<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<super::Uid>,
@@ -13017,10 +12967,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkSwitchItem> for super::CtmDataNetworkSwitchItem {
+    impl ::std::convert::TryFrom<CtmNetworkSwitchItem> for super::CtmNetworkSwitchItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkSwitchItem,
+            value: CtmNetworkSwitchItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 bus_fr: value.bus_fr?,
@@ -13035,8 +12985,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkSwitchItem> for CtmDataNetworkSwitchItem {
-        fn from(value: super::CtmDataNetworkSwitchItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkSwitchItem> for CtmNetworkSwitchItem {
+        fn from(value: super::CtmNetworkSwitchItem) -> Self {
             Self {
                 bus_fr: Ok(value.bus_fr),
                 bus_to: Ok(value.bus_to),
@@ -13051,20 +13001,20 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkTransformerItem {
+    pub struct CtmNetworkTransformerItem {
         b: ::std::result::Result<f64, ::std::string::String>,
         bus_fr: ::std::result::Result<super::Uid, ::std::string::String>,
         bus_to: ::std::result::Result<super::Uid, ::std::string::String>,
         cm_ub_a: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkTransformerItemCmUbA>,
+            ::std::option::Option<super::CtmNetworkTransformerItemCmUbA>,
             ::std::string::String,
         >,
         cm_ub_b: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkTransformerItemCmUbB>,
+            ::std::option::Option<super::CtmNetworkTransformerItemCmUbB>,
             ::std::string::String,
         >,
         cm_ub_c: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkTransformerItemCmUbC>,
+            ::std::option::Option<super::CtmNetworkTransformerItemCmUbC>,
             ::std::string::String,
         >,
         ext: ::std::result::Result<
@@ -13090,15 +13040,15 @@ pub mod builder {
         >,
         r: ::std::result::Result<f64, ::std::string::String>,
         sm_ub_a: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkTransformerItemSmUbA>,
+            ::std::option::Option<super::CtmNetworkTransformerItemSmUbA>,
             ::std::string::String,
         >,
         sm_ub_b: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkTransformerItemSmUbB>,
+            ::std::option::Option<super::CtmNetworkTransformerItemSmUbB>,
             ::std::string::String,
         >,
         sm_ub_c: ::std::result::Result<
-            ::std::option::Option<super::CtmDataNetworkTransformerItemSmUbC>,
+            ::std::option::Option<super::CtmNetworkTransformerItemSmUbC>,
             ::std::string::String,
         >,
         status: ::std::result::Result<super::Status, ::std::string::String>,
@@ -13111,7 +13061,7 @@ pub mod builder {
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
         x: ::std::result::Result<f64, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataNetworkTransformerItem {
+    impl ::std::default::Default for CtmNetworkTransformerItem {
         fn default() -> Self {
             Self {
                 b: Err("no value supplied for b".to_string()),
@@ -13132,17 +13082,17 @@ pub mod builder {
                 sm_ub_c: Ok(Default::default()),
                 status: Err("no value supplied for status".to_string()),
                 ta_lb: Ok(Default::default()),
-                ta_steps: Ok(super::defaults::ctm_data_network_transformer_item_ta_steps()),
+                ta_steps: Ok(super::defaults::ctm_network_transformer_item_ta_steps()),
                 ta_ub: Ok(Default::default()),
-                tm_lb: Ok(super::defaults::ctm_data_network_transformer_item_tm_lb()),
-                tm_steps: Ok(super::defaults::ctm_data_network_transformer_item_tm_steps()),
-                tm_ub: Ok(super::defaults::ctm_data_network_transformer_item_tm_ub()),
+                tm_lb: Ok(super::defaults::ctm_network_transformer_item_tm_lb()),
+                tm_steps: Ok(super::defaults::ctm_network_transformer_item_tm_steps()),
+                tm_ub: Ok(super::defaults::ctm_network_transformer_item_tm_ub()),
                 uid: Err("no value supplied for uid".to_string()),
                 x: Err("no value supplied for x".to_string()),
             }
         }
     }
-    impl CtmDataNetworkTransformerItem {
+    impl CtmNetworkTransformerItem {
         pub fn b<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<f64>,
@@ -13176,7 +13126,7 @@ pub mod builder {
         pub fn cm_ub_a<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkTransformerItemCmUbA>,
+                ::std::option::Option<super::CtmNetworkTransformerItemCmUbA>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -13188,7 +13138,7 @@ pub mod builder {
         pub fn cm_ub_b<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkTransformerItemCmUbB>,
+                ::std::option::Option<super::CtmNetworkTransformerItemCmUbB>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -13200,7 +13150,7 @@ pub mod builder {
         pub fn cm_ub_c<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkTransformerItemCmUbC>,
+                ::std::option::Option<super::CtmNetworkTransformerItemCmUbC>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -13288,7 +13238,7 @@ pub mod builder {
         pub fn sm_ub_a<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkTransformerItemSmUbA>,
+                ::std::option::Option<super::CtmNetworkTransformerItemSmUbA>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -13300,7 +13250,7 @@ pub mod builder {
         pub fn sm_ub_b<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkTransformerItemSmUbB>,
+                ::std::option::Option<super::CtmNetworkTransformerItemSmUbB>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -13312,7 +13262,7 @@ pub mod builder {
         pub fn sm_ub_c<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataNetworkTransformerItemSmUbC>,
+                ::std::option::Option<super::CtmNetworkTransformerItemSmUbC>,
             >,
             T::Error: ::std::fmt::Display,
         {
@@ -13412,12 +13362,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkTransformerItem>
-        for super::CtmDataNetworkTransformerItem
-    {
+    impl ::std::convert::TryFrom<CtmNetworkTransformerItem> for super::CtmNetworkTransformerItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkTransformerItem,
+            value: CtmNetworkTransformerItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 b: value.b?,
@@ -13448,8 +13396,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkTransformerItem> for CtmDataNetworkTransformerItem {
-        fn from(value: super::CtmDataNetworkTransformerItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkTransformerItem> for CtmNetworkTransformerItem {
+        fn from(value: super::CtmNetworkTransformerItem) -> Self {
             Self {
                 b: Ok(value.b),
                 bus_fr: Ok(value.bus_fr),
@@ -13480,7 +13428,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataNetworkZoneItem {
+    pub struct CtmNetworkZoneItem {
         ext: ::std::result::Result<
             ::std::option::Option<::serde_json::Value>,
             ::std::string::String,
@@ -13492,7 +13440,7 @@ pub mod builder {
         status: ::std::result::Result<super::Status, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataNetworkZoneItem {
+    impl ::std::default::Default for CtmNetworkZoneItem {
         fn default() -> Self {
             Self {
                 ext: Ok(Default::default()),
@@ -13502,7 +13450,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataNetworkZoneItem {
+    impl CtmNetworkZoneItem {
         pub fn ext<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<::serde_json::Value>>,
@@ -13544,10 +13492,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataNetworkZoneItem> for super::CtmDataNetworkZoneItem {
+    impl ::std::convert::TryFrom<CtmNetworkZoneItem> for super::CtmNetworkZoneItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataNetworkZoneItem,
+            value: CtmNetworkZoneItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 ext: value.ext?,
@@ -13557,8 +13505,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataNetworkZoneItem> for CtmDataNetworkZoneItem {
-        fn from(value: super::CtmDataNetworkZoneItem) -> Self {
+    impl ::std::convert::From<super::CtmNetworkZoneItem> for CtmNetworkZoneItem {
+        fn from(value: super::CtmNetworkZoneItem) -> Self {
             Self {
                 ext: Ok(value.ext),
                 name: Ok(value.name),
@@ -13568,41 +13516,39 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataTemporalBoundary {
+    pub struct CtmTemporalBoundary {
         bus: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataTemporalBoundaryBusItem>,
+            ::std::vec::Vec<super::CtmTemporalBoundaryBusItem>,
             ::std::string::String,
         >,
         gen: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataTemporalBoundaryGenItem>,
+            ::std::vec::Vec<super::CtmTemporalBoundaryGenItem>,
             ::std::string::String,
         >,
-        global_params: ::std::result::Result<
-            super::CtmDataTemporalBoundaryGlobalParams,
-            ::std::string::String,
-        >,
+        global_params:
+            ::std::result::Result<super::CtmTemporalBoundaryGlobalParams, ::std::string::String>,
         hvdc_p2p: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataTemporalBoundaryHvdcP2pItem>,
+            ::std::vec::Vec<super::CtmTemporalBoundaryHvdcP2pItem>,
             ::std::string::String,
         >,
         shunt: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataTemporalBoundaryShuntItem>,
+            ::std::vec::Vec<super::CtmTemporalBoundaryShuntItem>,
             ::std::string::String,
         >,
         storage: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataTemporalBoundaryStorageItem>,
+            ::std::vec::Vec<super::CtmTemporalBoundaryStorageItem>,
             ::std::string::String,
         >,
         switch: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataTemporalBoundarySwitchItem>,
+            ::std::vec::Vec<super::CtmTemporalBoundarySwitchItem>,
             ::std::string::String,
         >,
         transformer: ::std::result::Result<
-            ::std::vec::Vec<super::CtmDataTemporalBoundaryTransformerItem>,
+            ::std::vec::Vec<super::CtmTemporalBoundaryTransformerItem>,
             ::std::string::String,
         >,
     }
-    impl ::std::default::Default for CtmDataTemporalBoundary {
+    impl ::std::default::Default for CtmTemporalBoundary {
         fn default() -> Self {
             Self {
                 bus: Ok(Default::default()),
@@ -13616,10 +13562,10 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataTemporalBoundary {
+    impl CtmTemporalBoundary {
         pub fn bus<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataTemporalBoundaryBusItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmTemporalBoundaryBusItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.bus = value
@@ -13629,7 +13575,7 @@ pub mod builder {
         }
         pub fn gen<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataTemporalBoundaryGenItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmTemporalBoundaryGenItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.gen = value
@@ -13639,7 +13585,7 @@ pub mod builder {
         }
         pub fn global_params<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataTemporalBoundaryGlobalParams>,
+            T: ::std::convert::TryInto<super::CtmTemporalBoundaryGlobalParams>,
             T::Error: ::std::fmt::Display,
         {
             self.global_params = value
@@ -13649,7 +13595,7 @@ pub mod builder {
         }
         pub fn hvdc_p2p<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataTemporalBoundaryHvdcP2pItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmTemporalBoundaryHvdcP2pItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.hvdc_p2p = value
@@ -13659,7 +13605,7 @@ pub mod builder {
         }
         pub fn shunt<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataTemporalBoundaryShuntItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmTemporalBoundaryShuntItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.shunt = value
@@ -13669,7 +13615,7 @@ pub mod builder {
         }
         pub fn storage<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataTemporalBoundaryStorageItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmTemporalBoundaryStorageItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.storage = value
@@ -13679,7 +13625,7 @@ pub mod builder {
         }
         pub fn switch<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmDataTemporalBoundarySwitchItem>>,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmTemporalBoundarySwitchItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.switch = value
@@ -13689,9 +13635,7 @@ pub mod builder {
         }
         pub fn transformer<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::vec::Vec<super::CtmDataTemporalBoundaryTransformerItem>,
-            >,
+            T: ::std::convert::TryInto<::std::vec::Vec<super::CtmTemporalBoundaryTransformerItem>>,
             T::Error: ::std::fmt::Display,
         {
             self.transformer = value
@@ -13700,10 +13644,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataTemporalBoundary> for super::CtmDataTemporalBoundary {
+    impl ::std::convert::TryFrom<CtmTemporalBoundary> for super::CtmTemporalBoundary {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataTemporalBoundary,
+            value: CtmTemporalBoundary,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 bus: value.bus?,
@@ -13717,8 +13661,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataTemporalBoundary> for CtmDataTemporalBoundary {
-        fn from(value: super::CtmDataTemporalBoundary) -> Self {
+    impl ::std::convert::From<super::CtmTemporalBoundary> for CtmTemporalBoundary {
+        fn from(value: super::CtmTemporalBoundary) -> Self {
             Self {
                 bus: Ok(value.bus),
                 gen: Ok(value.gen),
@@ -13732,7 +13676,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataTemporalBoundaryBusItem {
+    pub struct CtmTemporalBoundaryBusItem {
         ext: ::std::result::Result<
             ::std::option::Option<::serde_json::Value>,
             ::std::string::String,
@@ -13744,7 +13688,7 @@ pub mod builder {
             ::std::string::String,
         >,
     }
-    impl ::std::default::Default for CtmDataTemporalBoundaryBusItem {
+    impl ::std::default::Default for CtmTemporalBoundaryBusItem {
         fn default() -> Self {
             Self {
                 ext: Ok(Default::default()),
@@ -13754,7 +13698,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataTemporalBoundaryBusItem {
+    impl CtmTemporalBoundaryBusItem {
         pub fn ext<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<::serde_json::Value>>,
@@ -13796,12 +13740,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataTemporalBoundaryBusItem>
-        for super::CtmDataTemporalBoundaryBusItem
-    {
+    impl ::std::convert::TryFrom<CtmTemporalBoundaryBusItem> for super::CtmTemporalBoundaryBusItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataTemporalBoundaryBusItem,
+            value: CtmTemporalBoundaryBusItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 ext: value.ext?,
@@ -13811,10 +13753,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataTemporalBoundaryBusItem>
-        for CtmDataTemporalBoundaryBusItem
-    {
-        fn from(value: super::CtmDataTemporalBoundaryBusItem) -> Self {
+    impl ::std::convert::From<super::CtmTemporalBoundaryBusItem> for CtmTemporalBoundaryBusItem {
+        fn from(value: super::CtmTemporalBoundaryBusItem) -> Self {
             Self {
                 ext: Ok(value.ext),
                 uid: Ok(value.uid),
@@ -13824,7 +13764,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataTemporalBoundaryGenItem {
+    pub struct CtmTemporalBoundaryGenItem {
         down_time: ::std::result::Result<
             ::std::option::Option<super::NonnegativeNumber>,
             ::std::string::String,
@@ -13841,7 +13781,7 @@ pub mod builder {
         qg: ::std::result::Result<::std::option::Option<f64>, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataTemporalBoundaryGenItem {
+    impl ::std::default::Default for CtmTemporalBoundaryGenItem {
         fn default() -> Self {
             Self {
                 down_time: Ok(Default::default()),
@@ -13853,7 +13793,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataTemporalBoundaryGenItem {
+    impl CtmTemporalBoundaryGenItem {
         pub fn down_time<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<super::NonnegativeNumber>>,
@@ -13915,12 +13855,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataTemporalBoundaryGenItem>
-        for super::CtmDataTemporalBoundaryGenItem
-    {
+    impl ::std::convert::TryFrom<CtmTemporalBoundaryGenItem> for super::CtmTemporalBoundaryGenItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataTemporalBoundaryGenItem,
+            value: CtmTemporalBoundaryGenItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 down_time: value.down_time?,
@@ -13932,10 +13870,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataTemporalBoundaryGenItem>
-        for CtmDataTemporalBoundaryGenItem
-    {
-        fn from(value: super::CtmDataTemporalBoundaryGenItem) -> Self {
+    impl ::std::convert::From<super::CtmTemporalBoundaryGenItem> for CtmTemporalBoundaryGenItem {
+        fn from(value: super::CtmTemporalBoundaryGenItem) -> Self {
             Self {
                 down_time: Ok(value.down_time),
                 ext: Ok(value.ext),
@@ -13947,17 +13883,17 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataTemporalBoundaryGlobalParams {
+    pub struct CtmTemporalBoundaryGlobalParams {
         time_elapsed: ::std::result::Result<super::NonnegativeNumber, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataTemporalBoundaryGlobalParams {
+    impl ::std::default::Default for CtmTemporalBoundaryGlobalParams {
         fn default() -> Self {
             Self {
                 time_elapsed: Err("no value supplied for time_elapsed".to_string()),
             }
         }
     }
-    impl CtmDataTemporalBoundaryGlobalParams {
+    impl CtmTemporalBoundaryGlobalParams {
         pub fn time_elapsed<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<super::NonnegativeNumber>,
@@ -13969,29 +13905,29 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataTemporalBoundaryGlobalParams>
-        for super::CtmDataTemporalBoundaryGlobalParams
+    impl ::std::convert::TryFrom<CtmTemporalBoundaryGlobalParams>
+        for super::CtmTemporalBoundaryGlobalParams
     {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataTemporalBoundaryGlobalParams,
+            value: CtmTemporalBoundaryGlobalParams,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 time_elapsed: value.time_elapsed?,
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataTemporalBoundaryGlobalParams>
-        for CtmDataTemporalBoundaryGlobalParams
+    impl ::std::convert::From<super::CtmTemporalBoundaryGlobalParams>
+        for CtmTemporalBoundaryGlobalParams
     {
-        fn from(value: super::CtmDataTemporalBoundaryGlobalParams) -> Self {
+        fn from(value: super::CtmTemporalBoundaryGlobalParams) -> Self {
             Self {
                 time_elapsed: Ok(value.time_elapsed),
             }
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataTemporalBoundaryHvdcP2pItem {
+    pub struct CtmTemporalBoundaryHvdcP2pItem {
         ext: ::std::result::Result<
             ::std::option::Option<::serde_json::Value>,
             ::std::string::String,
@@ -14010,7 +13946,7 @@ pub mod builder {
             ::std::string::String,
         >,
     }
-    impl ::std::default::Default for CtmDataTemporalBoundaryHvdcP2pItem {
+    impl ::std::default::Default for CtmTemporalBoundaryHvdcP2pItem {
         fn default() -> Self {
             Self {
                 ext: Ok(Default::default()),
@@ -14024,7 +13960,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataTemporalBoundaryHvdcP2pItem {
+    impl CtmTemporalBoundaryHvdcP2pItem {
         pub fn ext<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<::serde_json::Value>>,
@@ -14106,12 +14042,12 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataTemporalBoundaryHvdcP2pItem>
-        for super::CtmDataTemporalBoundaryHvdcP2pItem
+    impl ::std::convert::TryFrom<CtmTemporalBoundaryHvdcP2pItem>
+        for super::CtmTemporalBoundaryHvdcP2pItem
     {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataTemporalBoundaryHvdcP2pItem,
+            value: CtmTemporalBoundaryHvdcP2pItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 ext: value.ext?,
@@ -14125,10 +14061,10 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataTemporalBoundaryHvdcP2pItem>
-        for CtmDataTemporalBoundaryHvdcP2pItem
+    impl ::std::convert::From<super::CtmTemporalBoundaryHvdcP2pItem>
+        for CtmTemporalBoundaryHvdcP2pItem
     {
-        fn from(value: super::CtmDataTemporalBoundaryHvdcP2pItem) -> Self {
+        fn from(value: super::CtmTemporalBoundaryHvdcP2pItem) -> Self {
             Self {
                 ext: Ok(value.ext),
                 pdc_fr: Ok(value.pdc_fr),
@@ -14142,18 +14078,18 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataTemporalBoundaryShuntItem {
+    pub struct CtmTemporalBoundaryShuntItem {
         ext: ::std::result::Result<
             ::std::option::Option<::serde_json::Value>,
             ::std::string::String,
         >,
         num_steps: ::std::result::Result<
-            super::CtmDataTemporalBoundaryShuntItemNumSteps,
+            super::CtmTemporalBoundaryShuntItemNumSteps,
             ::std::string::String,
         >,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataTemporalBoundaryShuntItem {
+    impl ::std::default::Default for CtmTemporalBoundaryShuntItem {
         fn default() -> Self {
             Self {
                 ext: Ok(Default::default()),
@@ -14162,7 +14098,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataTemporalBoundaryShuntItem {
+    impl CtmTemporalBoundaryShuntItem {
         pub fn ext<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<::serde_json::Value>>,
@@ -14175,7 +14111,7 @@ pub mod builder {
         }
         pub fn num_steps<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<super::CtmDataTemporalBoundaryShuntItemNumSteps>,
+            T: ::std::convert::TryInto<super::CtmTemporalBoundaryShuntItemNumSteps>,
             T::Error: ::std::fmt::Display,
         {
             self.num_steps = value
@@ -14194,12 +14130,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataTemporalBoundaryShuntItem>
-        for super::CtmDataTemporalBoundaryShuntItem
-    {
+    impl ::std::convert::TryFrom<CtmTemporalBoundaryShuntItem> for super::CtmTemporalBoundaryShuntItem {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataTemporalBoundaryShuntItem,
+            value: CtmTemporalBoundaryShuntItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 ext: value.ext?,
@@ -14208,10 +14142,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataTemporalBoundaryShuntItem>
-        for CtmDataTemporalBoundaryShuntItem
-    {
-        fn from(value: super::CtmDataTemporalBoundaryShuntItem) -> Self {
+    impl ::std::convert::From<super::CtmTemporalBoundaryShuntItem> for CtmTemporalBoundaryShuntItem {
+        fn from(value: super::CtmTemporalBoundaryShuntItem) -> Self {
             Self {
                 ext: Ok(value.ext),
                 num_steps: Ok(value.num_steps),
@@ -14220,7 +14152,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataTemporalBoundaryStorageItem {
+    pub struct CtmTemporalBoundaryStorageItem {
         energy: ::std::result::Result<super::NonnegativeNumber, ::std::string::String>,
         ext: ::std::result::Result<
             ::std::option::Option<::serde_json::Value>,
@@ -14230,7 +14162,7 @@ pub mod builder {
         qs: ::std::result::Result<::std::option::Option<f64>, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataTemporalBoundaryStorageItem {
+    impl ::std::default::Default for CtmTemporalBoundaryStorageItem {
         fn default() -> Self {
             Self {
                 energy: Err("no value supplied for energy".to_string()),
@@ -14241,7 +14173,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataTemporalBoundaryStorageItem {
+    impl CtmTemporalBoundaryStorageItem {
         pub fn energy<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<super::NonnegativeNumber>,
@@ -14293,12 +14225,12 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataTemporalBoundaryStorageItem>
-        for super::CtmDataTemporalBoundaryStorageItem
+    impl ::std::convert::TryFrom<CtmTemporalBoundaryStorageItem>
+        for super::CtmTemporalBoundaryStorageItem
     {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataTemporalBoundaryStorageItem,
+            value: CtmTemporalBoundaryStorageItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 energy: value.energy?,
@@ -14309,10 +14241,10 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataTemporalBoundaryStorageItem>
-        for CtmDataTemporalBoundaryStorageItem
+    impl ::std::convert::From<super::CtmTemporalBoundaryStorageItem>
+        for CtmTemporalBoundaryStorageItem
     {
-        fn from(value: super::CtmDataTemporalBoundaryStorageItem) -> Self {
+        fn from(value: super::CtmTemporalBoundaryStorageItem) -> Self {
             Self {
                 energy: Ok(value.energy),
                 ext: Ok(value.ext),
@@ -14323,7 +14255,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataTemporalBoundarySwitchItem {
+    pub struct CtmTemporalBoundarySwitchItem {
         ext: ::std::result::Result<
             ::std::option::Option<::serde_json::Value>,
             ::std::string::String,
@@ -14331,7 +14263,7 @@ pub mod builder {
         state: ::std::result::Result<super::Binary, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataTemporalBoundarySwitchItem {
+    impl ::std::default::Default for CtmTemporalBoundarySwitchItem {
         fn default() -> Self {
             Self {
                 ext: Ok(Default::default()),
@@ -14340,7 +14272,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataTemporalBoundarySwitchItem {
+    impl CtmTemporalBoundarySwitchItem {
         pub fn ext<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<::serde_json::Value>>,
@@ -14372,12 +14304,12 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataTemporalBoundarySwitchItem>
-        for super::CtmDataTemporalBoundarySwitchItem
+    impl ::std::convert::TryFrom<CtmTemporalBoundarySwitchItem>
+        for super::CtmTemporalBoundarySwitchItem
     {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataTemporalBoundarySwitchItem,
+            value: CtmTemporalBoundarySwitchItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 ext: value.ext?,
@@ -14386,10 +14318,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataTemporalBoundarySwitchItem>
-        for CtmDataTemporalBoundarySwitchItem
-    {
-        fn from(value: super::CtmDataTemporalBoundarySwitchItem) -> Self {
+    impl ::std::convert::From<super::CtmTemporalBoundarySwitchItem> for CtmTemporalBoundarySwitchItem {
+        fn from(value: super::CtmTemporalBoundarySwitchItem) -> Self {
             Self {
                 ext: Ok(value.ext),
                 state: Ok(value.state),
@@ -14398,7 +14328,7 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataTemporalBoundaryTransformerItem {
+    pub struct CtmTemporalBoundaryTransformerItem {
         ext: ::std::result::Result<
             ::std::option::Option<::serde_json::Value>,
             ::std::string::String,
@@ -14407,7 +14337,7 @@ pub mod builder {
         tm: ::std::result::Result<super::PositiveNumber, ::std::string::String>,
         uid: ::std::result::Result<super::Uid, ::std::string::String>,
     }
-    impl ::std::default::Default for CtmDataTemporalBoundaryTransformerItem {
+    impl ::std::default::Default for CtmTemporalBoundaryTransformerItem {
         fn default() -> Self {
             Self {
                 ext: Ok(Default::default()),
@@ -14417,7 +14347,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataTemporalBoundaryTransformerItem {
+    impl CtmTemporalBoundaryTransformerItem {
         pub fn ext<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::option::Option<::serde_json::Value>>,
@@ -14459,12 +14389,12 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataTemporalBoundaryTransformerItem>
-        for super::CtmDataTemporalBoundaryTransformerItem
+    impl ::std::convert::TryFrom<CtmTemporalBoundaryTransformerItem>
+        for super::CtmTemporalBoundaryTransformerItem
     {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataTemporalBoundaryTransformerItem,
+            value: CtmTemporalBoundaryTransformerItem,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 ext: value.ext?,
@@ -14474,10 +14404,10 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataTemporalBoundaryTransformerItem>
-        for CtmDataTemporalBoundaryTransformerItem
+    impl ::std::convert::From<super::CtmTemporalBoundaryTransformerItem>
+        for CtmTemporalBoundaryTransformerItem
     {
-        fn from(value: super::CtmDataTemporalBoundaryTransformerItem) -> Self {
+        fn from(value: super::CtmTemporalBoundaryTransformerItem) -> Self {
             Self {
                 ext: Ok(value.ext),
                 ta: Ok(value.ta),
@@ -14487,11 +14417,11 @@ pub mod builder {
         }
     }
     #[derive(Clone, Debug)]
-    pub struct CtmDataTimeSeriesData {
+    pub struct CtmTimeSeriesData {
         ext: ::std::result::Result<::std::vec::Vec<::serde_json::Value>, ::std::string::String>,
         name: ::std::result::Result<::std::vec::Vec<::std::string::String>, ::std::string::String>,
         path_to_file: ::std::result::Result<
-            ::std::option::Option<super::CtmDataTimeSeriesDataPathToFile>,
+            ::std::option::Option<super::CtmTimeSeriesDataPathToFile>,
             ::std::string::String,
         >,
         timestamp:
@@ -14502,7 +14432,7 @@ pub mod builder {
             ::std::string::String,
         >,
     }
-    impl ::std::default::Default for CtmDataTimeSeriesData {
+    impl ::std::default::Default for CtmTimeSeriesData {
         fn default() -> Self {
             Self {
                 ext: Ok(Default::default()),
@@ -14514,7 +14444,7 @@ pub mod builder {
             }
         }
     }
-    impl CtmDataTimeSeriesData {
+    impl CtmTimeSeriesData {
         pub fn ext<T>(mut self, value: T) -> Self
         where
             T: ::std::convert::TryInto<::std::vec::Vec<::serde_json::Value>>,
@@ -14537,9 +14467,7 @@ pub mod builder {
         }
         pub fn path_to_file<T>(mut self, value: T) -> Self
         where
-            T: ::std::convert::TryInto<
-                ::std::option::Option<super::CtmDataTimeSeriesDataPathToFile>,
-            >,
+            T: ::std::convert::TryInto<::std::option::Option<super::CtmTimeSeriesDataPathToFile>>,
             T::Error: ::std::fmt::Display,
         {
             self.path_to_file = value
@@ -14578,10 +14506,10 @@ pub mod builder {
             self
         }
     }
-    impl ::std::convert::TryFrom<CtmDataTimeSeriesData> for super::CtmDataTimeSeriesData {
+    impl ::std::convert::TryFrom<CtmTimeSeriesData> for super::CtmTimeSeriesData {
         type Error = super::error::ConversionError;
         fn try_from(
-            value: CtmDataTimeSeriesData,
+            value: CtmTimeSeriesData,
         ) -> ::std::result::Result<Self, super::error::ConversionError> {
             Ok(Self {
                 ext: value.ext?,
@@ -14593,8 +14521,8 @@ pub mod builder {
             })
         }
     }
-    impl ::std::convert::From<super::CtmDataTimeSeriesData> for CtmDataTimeSeriesData {
-        fn from(value: super::CtmDataTimeSeriesData) -> Self {
+    impl ::std::convert::From<super::CtmTimeSeriesData> for CtmTimeSeriesData {
+        fn from(value: super::CtmTimeSeriesData) -> Self {
             Self {
                 ext: Ok(value.ext),
                 name: Ok(value.name),
@@ -14728,31 +14656,31 @@ pub mod defaults {
     {
         T::try_from(::std::num::NonZeroU64::try_from(V).unwrap()).unwrap()
     }
-    pub(super) fn ctm_data_network_global_params_base_mva() -> super::PositiveNumber {
+    pub(super) fn ctm_network_global_params_base_mva() -> super::PositiveNumber {
         super::PositiveNumber(100.0_f64)
     }
-    pub(super) fn ctm_data_network_hvdc_p2p_item_loss_a() -> super::NonnegativeNumber {
+    pub(super) fn ctm_network_hvdc_p2p_item_loss_a() -> super::NonnegativeNumber {
         super::NonnegativeNumber(0_f64)
     }
-    pub(super) fn ctm_data_network_hvdc_p2p_item_loss_b() -> super::NonnegativeNumber {
+    pub(super) fn ctm_network_hvdc_p2p_item_loss_b() -> super::NonnegativeNumber {
         super::NonnegativeNumber(0_f64)
     }
-    pub(super) fn ctm_data_network_hvdc_p2p_item_loss_c() -> super::NonnegativeNumber {
+    pub(super) fn ctm_network_hvdc_p2p_item_loss_c() -> super::NonnegativeNumber {
         super::NonnegativeNumber(0_f64)
     }
-    pub(super) fn ctm_data_network_hvdc_p2p_item_r() -> super::NonnegativeNumber {
+    pub(super) fn ctm_network_hvdc_p2p_item_r() -> super::NonnegativeNumber {
         super::NonnegativeNumber(0.0_f64)
     }
-    pub(super) fn ctm_data_network_transformer_item_ta_steps() -> super::PositiveInteger {
+    pub(super) fn ctm_network_transformer_item_ta_steps() -> super::PositiveInteger {
         super::PositiveInteger(::std::num::NonZeroU64::new(1).unwrap())
     }
-    pub(super) fn ctm_data_network_transformer_item_tm_lb() -> super::PositiveNumber {
+    pub(super) fn ctm_network_transformer_item_tm_lb() -> super::PositiveNumber {
         super::PositiveNumber(1.0_f64)
     }
-    pub(super) fn ctm_data_network_transformer_item_tm_steps() -> super::PositiveInteger {
+    pub(super) fn ctm_network_transformer_item_tm_steps() -> super::PositiveInteger {
         super::PositiveInteger(::std::num::NonZeroU64::new(1).unwrap())
     }
-    pub(super) fn ctm_data_network_transformer_item_tm_ub() -> super::PositiveNumber {
+    pub(super) fn ctm_network_transformer_item_tm_ub() -> super::PositiveNumber {
         super::PositiveNumber(1.0_f64)
     }
 }
