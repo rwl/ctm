@@ -1,0 +1,18 @@
+[package]
+name = "ctm"
+version = "0.1.0"
+description = "Common Electric Power Transmission System Model"
+license = "MIT"
+repository = "https://github.com/rwl/ctm"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[build-dependencies]
+prettyplease = "0.2"
+schemars = "0.8"
+serde_json = "1.0"
+syn = "2.0"
+typify = { git = "https://github.com/oxidecomputer/typify.git", rev = "4bffebf" }
